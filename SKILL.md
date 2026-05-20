@@ -16,8 +16,17 @@ Style name: `MSSP Compact Dynamics`.
 5. Use `scripts/scimplstyle_mssp.py` as the default Matplotlib style module for new or regenerated figures.
 6. Use `scripts/scimplstyle_mssp_cli.py` when the user wants subcommands such as `audit`, `style-guide`, or demo scaffolds.
 7. For figures that do not match a demo exactly, read `references/adaptation-guide.md` and adapt by figure intent, data geometry, and manuscript role.
+8. Treat the skill folder as a template library; place user-specific plotting scripts and generated figures in the user's project workspace.
 
 Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Python code. Treat terminal mojibake as display-only; inspect bytes/files with UTF-8 aware tools before calling text corrupted.
+
+## Workspace Usage
+
+- Keep the installed skill folder and Git repository clean; do not use them as the normal place for user plot scripts or generated PNG/JPG/PDF/SVG files.
+- When the user asks for a new plot script, create it under the user's current project/workspace, preferably in a run folder such as `plot_runs/<task-name>/`.
+- When copying demo scripts, copy them to the run folder root so each demo writes figures to that run folder's `output/` directory.
+- If the user does not specify a destination, choose a clear folder under the current working directory, then report the absolute script path and output path.
+- Only write generated images inside the skill package when deliberately maintaining curated README examples under `assets/examples/`.
 
 ## Figure Taxonomy
 

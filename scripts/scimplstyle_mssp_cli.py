@@ -83,8 +83,8 @@ def build_parser() -> argparse.ArgumentParser:
     list_demos = subparsers.add_parser("list-demos", help="List available demo scripts")
     list_demos.set_defaults(func=command_list_demos)
 
-    copy_demos = subparsers.add_parser("copy-demos", help="Copy demo scripts to a working folder")
-    copy_demos.add_argument("output", type=Path, help="Destination folder")
+    copy_demos = subparsers.add_parser("copy-demos", help="Copy demo scripts to a user working folder")
+    copy_demos.add_argument("output", type=Path, help="Destination folder outside the skill package")
     copy_demos.set_defaults(func=command_copy_demos)
 
     return parser

@@ -85,8 +85,22 @@ Copy demo scripts to a working folder:
 复制 demo 脚本到你的工作目录：
 
 ```bash
-python scripts/scimplstyle_mssp_cli.py copy-demos output
+mkdir paper-plot-workspace
+python scripts/scimplstyle_mssp_cli.py copy-demos paper-plot-workspace
 ```
+
+Run a copied demo:
+
+运行复制后的 demo：
+
+```bash
+cd paper-plot-workspace
+python demo_line_plot.py
+```
+
+The generated PNG files will be written to `paper-plot-workspace/output/`.
+
+生成的 PNG 图片会写入 `paper-plot-workspace/output/`。
 
 Audit a figure folder:
 
@@ -121,6 +135,29 @@ ax.legend(frameon=True)
 save_figure(fig, "example_line_plot", out_dir=Path("figures"))
 ```
 
+## Recommended Working Folder / 推荐工作目录
+
+Use the skill folder as a reusable template library. Put user-specific plotting scripts and generated figures in your own paper/project workspace, not inside the installed skill folder.
+
+建议把 skill 文件夹当作可复用模板库。你的论文绘图脚本和生成图片应放在自己的论文/项目工作区，不要直接写入已安装的 skill 文件夹。
+
+```text
+paper-plot-workspace/
+├── demo_line_plot.py
+├── demo_bar_llm_performance.py
+└── output/
+    ├── demo_line_plot.png
+    └── demo_bar_llm_performance.png
+```
+
+For Codex usage, a good prompt is:
+
+给 Codex 使用时，可以这样说：
+
+```text
+Use $sci-paper-plot-skill. Create the plotting script and PNG output in my current project workspace, not inside the skill folder.
+```
+
 ## Repository Layout / 仓库结构
 
 ```text
@@ -151,9 +188,9 @@ Run the package check before sharing:
 python scripts/package_check.py .
 ```
 
-The package intentionally keeps only curated PNG preview images under `assets/examples/`. Demo-generated outputs should stay outside the skill folder.
+The package intentionally keeps only curated PNG preview images under `assets/examples/`. Demo-generated outputs should stay outside the skill folder and inside the user's working folder.
 
-本仓库只保留 `assets/examples/` 中精选的 PNG 预览图。demo 运行后生成的图片应放在 skill 文件夹外部，避免把临时输出打包进去。
+本仓库只保留 `assets/examples/` 中精选的 PNG 预览图。demo 运行后生成的图片应放在 skill 文件夹外部、用户自己的工作目录中，避免把临时输出打包进去。
 
 ## Installation As A Codex Skill / 安装为 Codex Skill
 
@@ -172,4 +209,3 @@ Then ask Codex to use:
 ```text
 Use $sci-paper-plot-skill to create a compact SCI-style FRF comparison figure.
 ```
-
