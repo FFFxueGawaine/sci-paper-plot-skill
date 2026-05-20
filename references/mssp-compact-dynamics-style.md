@@ -16,7 +16,8 @@ The style was distilled from a private paper figure set during development. Loca
 
 | Family | Typical manuscript question | Style pattern | Template advice |
 |---|---|---|---|
-| Model validation / prediction comparison | Does the identified or learned model reproduce measured response? | black/blue experiment line, red identified/proposed line, optional confidence band | standardize legend, use `time (s)`, keep line hierarchy clear |
+| Model validation / prediction comparison | Does the identified or learned model reproduce measured response? | black/blue experiment line, red identified/proposed line, optional confidence band or local zoom inset | standardize legend, use `time (s)`, keep line hierarchy clear |
+| Local zoom / inset detail | What small difference appears near a peak, transient, or resonance region? | parent curve plus compact inset axes and thin connectors | use `add_zoom_inset()`, keep inset ticks small, and avoid duplicate inset legends |
 | Posterior distribution / KDE | Where are the posterior mass and uncertainty concentrated? | KDE or scatter density, colorbar, true/estimated markers, compact annotations | standardize colorbar, marker size, decimal precision, annotation placement |
 | Physical relation / nonlinear stiffness | How does force, stiffness, or restoring relation vary with displacement? | one- or two-panel curve family, optional dashed components | keep formulas readable and avoid oversized annotations |
 | Duffing / nonlinear system identification | Does the identified nonlinear model reproduce response and recover physical terms? | time validation, phase portrait, restoring force curve, coefficient bars | pair response validation with interpretable coefficients or library terms |
@@ -61,6 +62,7 @@ For numbered manuscript figures, use consistent capitalization such as `Fig_01.p
 - Change `dis.(mm)` to `dis. (mm)`.
 - Keep panel labels bold and placed consistently; use `base_size + 4 pt` as the default template size.
 - Keep legends in empty regions or outside axes when the plot is dense.
+- Keep local zoom insets in empty regions; do not let the inset cover the very feature it is meant to explain.
 - Keep grid lines light, behind data, and disabled on axes where they do not help reading.
 - Keep layouts compact but leave enough save margin for x/y labels; prefer `constrained_layout=True` plus `pad_inches=0.04`.
 - Use consistent SNR colors if comparing `40 dB`, `30 dB`, and `20 dB`.

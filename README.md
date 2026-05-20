@@ -59,6 +59,7 @@ The default visual style is still named `MSSP Compact Dynamics`, and the Python 
 
 - Paper figure inventory and style audit / 论文图片清单与风格检查
 - Model validation, FRF, time response, time-frequency, phase, Poincare, bifurcation, basin plots / 验证图、频响图、时域响应、时频图、相图、Poincare 图、分岔图、吸引域图
+- Local zoom inset for validation, FRF, and peak-region detail / 用于验证图、频响图、峰值区域细节的局部放大图
 - Duffing, Van der Pol, pendulum, Bouc-Wen, nonlinear restoring force, and sparse identification plots / Duffing、Van der Pol、摆、Bouc-Wen、非线性恢复力和稀疏辨识图
 - ML result plots such as confusion matrix, ROC/PR, radar chart, feature importance, residual KDE, heatmap / 机器学习常用图，如混淆矩阵、ROC/PR、雷达图、特征重要性、残差 KDE、热力图
 - Compact SCI layout rules: Times New Roman, 600 dpi PNG, careful legends, light grids, unclipped labels / 紧凑 SCI 排版：Times New Roman、600 dpi PNG、图例不遮挡数据、浅网格、坐标标签不截断
@@ -70,6 +71,7 @@ The default visual style is still named `MSSP Compact Dynamics`, and the Python 
 | `demo_duffing_identification.py` | Duffing time validation, phase portrait, restoring force, identified coefficients / Duffing 时域验证、相图、恢复力、参数辨识 |
 | `demo_nonlinear_systems_gallery.py` | Duffing, Van der Pol, pendulum, and Bouc-Wen comparison / 常见非线性系统对比 |
 | `demo_nonlinear_identification_library.py` | Sparse candidate-library coefficients and prediction residual / 稀疏候选库系数与预测残差 |
+| `demo_validation_inset_zoom.py` | Full validation curve with local magnified inset / 带局部放大图的整体验证曲线 |
 | `demo_phase_poincare.py` | Phase portrait and Poincare section / 相图与 Poincare 截面 |
 | `demo_bifurcation_diagram.py` | Bifurcation-style response branches / 分岔响应分支 |
 | `demo_time_frequency_map.py` | Time response and time-frequency map / 时域响应与时频图 |
@@ -160,6 +162,18 @@ panel_label(ax, "(a)")
 ax.legend(frameon=True)
 
 save_figure(fig, "example_line_plot", out_dir=Path("figures"))
+```
+
+For local magnified details, use `add_zoom_inset()`:
+
+局部放大图可使用 `add_zoom_inset()`：
+
+```python
+from scimplstyle_mssp import add_zoom_inset
+
+inset = add_zoom_inset(ax, xlim=(2.3, 2.8), ylim=(-0.35, 0.15), loc="upper left")
+inset.plot(time, experiment, color="black")
+inset.plot(time, identified, color="#E41A1C", ls="--")
 ```
 
 ## Recommended Working Folder / 推荐工作目录

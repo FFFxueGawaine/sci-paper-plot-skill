@@ -23,6 +23,7 @@ Style name: MSSP Compact Dynamics.
 - Legends: prefer `safe_legend()`; place dense legends outside the axes or in a genuinely empty corner.
 - Grid: keep it light, behind data, and disable the axis direction that does not help reading.
 - Validation plots: experiment in black or blue; identified/proposed in red dashed.
+- Local zoom plots: use `add_zoom_inset()` for small peak, transient, or resonance differences; keep inset ticks compact and omit duplicate inset legends.
 - KDE plots: use density colorbar, true/estimated markers, compact RE annotations.
 - FRF plots: use blue/black/red line hierarchy and dB magnitude.
 - Nonlinear dynamics demos: use Duffing, Van der Pol, pendulum, Bouc-Wen, restoring-force, and sparse-library plots as template anchors.

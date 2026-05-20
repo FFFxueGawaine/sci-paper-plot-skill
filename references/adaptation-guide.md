@@ -20,6 +20,7 @@ Use this guide when the user's code or image is not identical to the demos. The 
 | If code contains | Likely figure type | Adaptation rule |
 |---|---|---|
 | `plt.plot`, `ax.plot` with 1-3 curves | line plot or validation plot | use compact line widths, clear legend, optional markers only when sampling points matter |
+| zoomed region, `inset_axes`, or peak-detail comparison | local zoom inset | use `add_zoom_inset()`; keep tick labels small, avoid duplicate legends inside the inset, and mark the zoomed region with thin connectors |
 | `plt.scatter`, `ax.scatter` | scatter/uncertainty plot | use small markers, alpha, colorbar only if color encodes a variable |
 | `plt.bar`, `ax.bar`, `barh` | comparison bar chart | use compact value labels, one clear y metric, and light y-axis grid |
 | `hist`, `kdeplot`, `az.plot_posterior` | posterior/KDE plot | standardize density labels, decimal precision, and annotation placement |
@@ -38,6 +39,7 @@ Use this guide when the user's code or image is not identical to the demos. The 
 - Put y labels only on the left side when subplots share the same y meaning.
 - Keep x/y label `labelpad` small, usually `2`.
 - Use legends inside the plot only when they do not cover important data; otherwise place outside or above.
+- Use local zoom insets only when they reveal a real detail; place them in an empty region and avoid covering peaks, dense scatter, or legends.
 - For dense plots, reduce marker size before increasing figure size.
 
 ## Code Adaptation Checklist
@@ -47,6 +49,7 @@ Use this guide when the user's code or image is not identical to the demos. The 
 - Call `apply_sci_style(base_size=8)` for compact single-column figures.
 - Call `apply_sci_style(base_size=10)` for larger double-column or presentation-like figures.
 - Add `panel_label(ax, "(a)")` for manuscript panels.
+- Use `add_zoom_inset(ax, xlim=(...), ylim=(...))` for local magnified views instead of manually placing a large extra panel when the detail is small.
 - Use units with spaces: `time (s)`, `fre. (Hz)`, `dis. (mm)`.
 - Prefer lowercase compact quantity labels such as `vel.`, `acc.`, `amp.`, `mag.`, `err.`, `rmse`, and `loss`.
 - Keep official unit capitalization: `Hz`, `N`, `MPa`, and `dB` should not be forced to lowercase.

@@ -36,6 +36,7 @@ Use these categories for paper figure inventories:
 - Nonlinear stiffness or physical relation curve
 - Duffing / Van der Pol / pendulum / Bouc-Wen nonlinear system analysis
 - Time-domain response
+- Local zoom / inset validation detail
 - Frequency response / FRF
 - Time-frequency / spectrogram
 - Posterior distribution / KDE / uncertainty
@@ -65,9 +66,10 @@ For each exported figure, collect:
 - Use bold panel labels `(a)`, `(b)`, `(c)` consistently; default to `base_size + 4 pt`, e.g. `14 pt` when base text is `10 pt`.
 - Write units with a space before parentheses: `time (s)`, `fre. (Hz)`, `dis. (mm)`, `mag. (dB)`.
 - Prefer lowercase compact quantity labels such as `dis.`, `vel.`, `acc.`, `amp.`, `mag.`, `err.`, and `loss`; keep official unit capitalization such as `Hz`, `N`, `MPa`, and `dB`.
-- Keep labels, legends, line widths, markers, grid visibility, and colorbar placement consistent across the same figure family.
+- Keep labels, legends, line widths, markers, grid visibility, inset zooms, and colorbar placement consistent across the same figure family.
 - Keep legends and grid lines secondary to data: use `safe_legend()` or an empty corner for legends, place dense legends outside the axes, and keep grid lines light, behind plotted data, and never visually dominant.
 - Keep layouts compact but never crop axis labels; use `constrained_layout=True`, small `labelpad`, and save with a safety `pad_inches` around `0.04`.
+- Use local zoom insets when a validation, FRF, or peak-region figure needs to show small differences without losing the full trend.
 - Avoid using JPEG as the only master format for generated plots; JPEG is acceptable only as a preview copy.
 
 ## Axis Label Conventions
@@ -104,10 +106,10 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/machine-learning-figure-examples.md`: machine-learning figure examples such as radar charts, confusion matrices, residual plots, feature importance, and hyperparameter heatmaps.
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
-- `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures.
+- `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.
 - `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands.
 - `scripts/package_check.py`: lightweight pre-package validation without PyYAML.
-- `scripts/demos/`: runnable Matplotlib demos for validation comparison, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
+- `scripts/demos/`: runnable Matplotlib demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
 - `requirements.txt`: runtime dependencies for demos and audit scripts.
 
 Example use:

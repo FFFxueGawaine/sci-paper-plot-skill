@@ -105,6 +105,30 @@ def style_axes(ax: Any, grid: bool = False) -> None:
         ax.grid(True, color="0.88", linewidth=0.35, alpha=0.55, zorder=0)
 
 
+def add_zoom_inset(
+    ax: Any,
+    xlim: tuple[float, float],
+    ylim: tuple[float, float],
+    loc: str = "upper right",
+    width: str = "36%",
+    height: str = "36%",
+    borderpad: float = 0.8,
+    connectors: tuple[int, int] = (2, 4),
+    grid: bool = True,
+) -> Any:
+    """Create a compact local zoom inset and mark its region on the parent axes."""
+    import matplotlib as mpl
+    from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
+
+    inset = inset_axes(ax, width=width, height=height, loc=loc, borderpad=borderpad)
+    inset.set_xlim(*xlim)
+    inset.set_ylim(*ylim)
+    style_axes(inset, grid=grid)
+    inset.tick_params(labelsize=max(int(mpl.rcParams.get("font.size", 10)) - 2, 6), pad=1)
+    mark_inset(ax, inset, loc1=connectors[0], loc2=connectors[1], fc="none", ec="0.45", lw=0.6)
+    return inset
+
+
 def safe_legend(
     ax: Any,
     loc: str = "best",

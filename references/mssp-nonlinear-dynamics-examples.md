@@ -7,6 +7,7 @@ These examples are synthetic templates for mechanical nonlinear dynamics papers,
 | Figure type | Typical manuscript question | Template file |
 |---|---|---|
 | Duffing analysis and identification | Does the identified cubic-stiffness model reproduce the measured response and restoring force? | `demo_duffing_identification.py` |
+| Local zoom validation detail | Where do small response errors appear in the validation curve? | `demo_validation_inset_zoom.py` |
 | Common nonlinear systems gallery | Which nonlinear behavior family is being illustrated or compared? | `demo_nonlinear_systems_gallery.py` |
 | Sparse nonlinear library identification | Which candidate terms are retained and how small is the validation residual? | `demo_nonlinear_identification_library.py` |
 | Phase portrait + Poincare section | Does the response settle to periodic, quasi-periodic, or complex motion? | `demo_phase_poincare.py` |
