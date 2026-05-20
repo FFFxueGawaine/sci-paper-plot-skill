@@ -9,6 +9,14 @@ from pathlib import Path
 
 
 TEXT_EXTS = {".md", ".py", ".txt", ".yaml", ".yml", ".toml", ".json"}
+EXPECTED_SKILL_NAME = "mssp-matplotlib-sci-style"
+FORBIDDEN_DOC_NAMES = {
+    "README.md",
+    "INSTALLATION_GUIDE.md",
+    "QUICK_REFERENCE.md",
+    "CHANGELOG.md",
+}
+GENERATED_OUTPUT_EXTS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".pdf", ".svg"}
 REQUIRED_FILES = [
     "SKILL.md",
     "requirements.txt",
@@ -41,12 +49,34 @@ def check_skill_frontmatter(root: Path) -> list[str]:
     problems: list[str] = []
     skill_md = root / "SKILL.md"
     text = read_text(skill_md)
+    if root.name != EXPECTED_SKILL_NAME:
+        problems.append(f"skill folder should be named {EXPECTED_SKILL_NAME}, found {root.name}")
     if not text.startswith("---\n"):
         problems.append("SKILL.md frontmatter is missing")
-    if "\nname: mssp-matplotlib-sci-style\n" not in text:
+    if f"\nname: {EXPECTED_SKILL_NAME}\n" not in text:
         problems.append("SKILL.md frontmatter name is missing or unexpected")
     if "\ndescription:" not in text:
         problems.append("SKILL.md frontmatter description is missing")
+    if text.count("\n") > 500:
+        problems.append("SKILL.md should stay under 500 lines for progressive disclosure")
+    return problems
+
+
+def check_agents_metadata(root: Path) -> list[str]:
+    problems: list[str] = []
+    path = root / "agents" / "openai.yaml"
+    text = read_text(path)
+    required_terms = [
+        "display_name:",
+        "short_description:",
+        "default_prompt:",
+        EXPECTED_SKILL_NAME,
+        "MSSP",
+        "Matplotlib",
+    ]
+    for term in required_terms:
+        if term not in text:
+            problems.append(f"agents/openai.yaml missing `{term}`")
     return problems
 
 
@@ -57,6 +87,22 @@ def check_no_cache_files(root: Path) -> list[str]:
             problems.append(f"cache directory should not be packaged: {path.relative_to(root)}")
         elif path.suffix.lower() in {".pyc", ".pyo"}:
             problems.append(f"bytecode file should not be packaged: {path.relative_to(root)}")
+    return problems
+
+
+def check_no_forbidden_docs(root: Path) -> list[str]:
+    problems: list[str] = []
+    for path in root.rglob("*"):
+        if path.is_file() and path.name in FORBIDDEN_DOC_NAMES:
+            problems.append(f"extra documentation should not be packaged in a skill: {path.relative_to(root)}")
+    return problems
+
+
+def check_no_generated_outputs(root: Path) -> list[str]:
+    problems: list[str] = []
+    for path in root.rglob("*"):
+        if path.is_file() and path.suffix.lower() in GENERATED_OUTPUT_EXTS:
+            problems.append(f"generated output should not be packaged: {path.relative_to(root)}")
     return problems
 
 
@@ -101,7 +147,10 @@ def run_checks(root: Path) -> list[str]:
     checks = [
         check_required_files,
         check_skill_frontmatter,
+        check_agents_metadata,
         check_no_cache_files,
+        check_no_forbidden_docs,
+        check_no_generated_outputs,
         check_no_private_paths,
         check_python_syntax,
         check_demo_count,
