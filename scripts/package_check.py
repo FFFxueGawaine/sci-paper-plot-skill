@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pre-package checks for the mssp-matplotlib-sci-style skill."""
+"""Pre-package checks for the sci-paper-plot-skill package."""
 
 from __future__ import annotations
 
@@ -9,9 +9,8 @@ from pathlib import Path
 
 
 TEXT_EXTS = {".md", ".py", ".txt", ".yaml", ".yml", ".toml", ".json"}
-EXPECTED_SKILL_NAME = "mssp-matplotlib-sci-style"
+EXPECTED_SKILL_NAME = "sci-paper-plot-skill"
 FORBIDDEN_DOC_NAMES = {
-    "README.md",
     "INSTALLATION_GUIDE.md",
     "QUICK_REFERENCE.md",
     "CHANGELOG.md",
@@ -19,6 +18,7 @@ FORBIDDEN_DOC_NAMES = {
 GENERATED_OUTPUT_EXTS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".pdf", ".svg"}
 REQUIRED_FILES = [
     "SKILL.md",
+    "README.md",
     "requirements.txt",
     "agents/openai.yaml",
     "scripts/scimplstyle_mssp.py",
@@ -102,13 +102,16 @@ def check_no_generated_outputs(root: Path) -> list[str]:
     problems: list[str] = []
     for path in root.rglob("*"):
         if path.is_file() and path.suffix.lower() in GENERATED_OUTPUT_EXTS:
+            rel_path = path.relative_to(root)
+            if rel_path.parts[:2] == ("assets", "examples") and path.suffix.lower() == ".png":
+                continue
             problems.append(f"generated output should not be packaged: {path.relative_to(root)}")
     return problems
 
 
 def check_no_private_paths(root: Path) -> list[str]:
     problems: list[str] = []
-    drive_path_re = re.compile(r"[A-Za-z]:[\\/]")
+    drive_path_re = re.compile(r"(?<![A-Za-z0-9_])[A-Za-z]:[\\/]")
     private_terms = ["AI" + "-Workspace", "demo" + "_plots"]
     for path in root.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in TEXT_EXTS:

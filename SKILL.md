@@ -1,9 +1,9 @@
 ---
-name: mssp-matplotlib-sci-style
-description: Create and apply the reusable MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style for SCI scientific plotting, publication-ready figures, mechanical nonlinear dynamics, system identification, uncertainty visualization, and machine-learning result plots. Use when Codex needs to classify paper figures, audit exported .jpg/.png/.tif images, trace Jupyter notebook savefig sources, summarize figure style requirements, or generate English SCI manuscript plot templates without modifying existing figures.
+name: sci-paper-plot-skill
+description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, mechanical nonlinear dynamics figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
 ---
 
-# MSSP Matplotlib SCI Style
+# Sci Paper Plot Skill
 
 Style name: `MSSP Compact Dynamics`.
 

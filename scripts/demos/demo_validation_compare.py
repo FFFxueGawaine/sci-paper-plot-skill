@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 LOCAL_SCRIPTS = Path(__file__).resolve().parents[1]
-DEFAULT_SCRIPTS = Path.home() / ".codex" / "skills" / "mssp-matplotlib-sci-style" / "scripts"
+DEFAULT_SCRIPTS = Path.home() / ".codex" / "skills" / "sci-paper-plot-skill" / "scripts"
 for candidate in (LOCAL_SCRIPTS, DEFAULT_SCRIPTS):
     if (candidate / "scimplstyle_mssp.py").exists():
         sys.path.insert(0, str(candidate))

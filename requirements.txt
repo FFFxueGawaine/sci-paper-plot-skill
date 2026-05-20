@@ -1,4 +1,4 @@
-# Runtime dependencies for mssp-matplotlib-sci-style demos, audit scripts, and validation.
+# Runtime dependencies for sci-paper-plot-skill demos, audit scripts, and validation.
 numpy>=1.23
 matplotlib>=3.7
 Pillow>=9.0

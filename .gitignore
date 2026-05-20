@@ -15,3 +15,6 @@ output/
 *.tiff
 *.pdf
 *.svg
+!assets/
+!assets/examples/
+!assets/examples/*.png

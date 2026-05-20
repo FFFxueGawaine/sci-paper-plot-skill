@@ -1,4 +1,4 @@
 interface:
-  display_name: "MSSP Matplotlib SCI Style"
-  short_description: "Publication-ready Matplotlib templates for MSSP dynamics and ML figures"
-  default_prompt: "Use $mssp-matplotlib-sci-style to classify my paper figures or create MSSP Compact Dynamics Matplotlib templates."
+  display_name: "Sci Paper Plot Skill"
+  short_description: "Publication-ready Matplotlib templates for SCI paper figures"
+  default_prompt: "Use $sci-paper-plot-skill to classify my paper figures or create MSSP Compact Dynamics Matplotlib templates."
