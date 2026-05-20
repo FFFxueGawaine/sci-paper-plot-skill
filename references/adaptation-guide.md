@@ -20,7 +20,7 @@ Use this guide when the user's code or image is not identical to the demos. The 
 | If code contains | Likely figure type | Adaptation rule |
 |---|---|---|
 | `plt.plot`, `ax.plot` with 1-3 curves | line plot or validation plot | use compact line widths, clear legend, optional markers only when sampling points matter |
-| zoomed region, `inset_axes`, or peak-detail comparison | local zoom inset | use `add_zoom_inset()`; keep tick labels small, avoid duplicate legends inside the inset, and mark the zoomed region with thin connectors |
+| zoomed region, `inset_axes`, or peak-detail comparison | local zoom inset | use `add_zoom_inset()`; keep tick labels small, move ticks toward the inside when near a border, avoid duplicate legends inside the inset, and mark the zoomed region with thin connectors |
 | `plt.scatter`, `ax.scatter` | scatter/uncertainty plot | use small markers, alpha, colorbar only if color encodes a variable |
 | `plt.bar`, `ax.bar`, `barh` | comparison bar chart | use compact value labels, one clear y metric, and light y-axis grid |
 | `hist`, `kdeplot`, `az.plot_posterior` | posterior/KDE plot | standardize density labels, decimal precision, and annotation placement |
@@ -40,6 +40,7 @@ Use this guide when the user's code or image is not identical to the demos. The 
 - Keep x/y label `labelpad` small, usually `2`.
 - Use legends inside the plot only when they do not cover important data; otherwise place outside or above.
 - Use local zoom insets only when they reveal a real detail; place them in an empty region and avoid covering peaks, dense scatter, or legends.
+- Reserve safe blank space for the inset by widening the parent axes range, often with a larger `ylim`; use `save_figure(..., pad_inches=0.06-0.08)` when inset ticks or connectors are close to the figure boundary.
 - For dense plots, reduce marker size before increasing figure size.
 
 ## Code Adaptation Checklist

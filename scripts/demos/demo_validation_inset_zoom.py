@@ -34,7 +34,7 @@ def main() -> None:
     ax.set_xlabel("time (s)", labelpad=2)
     ax.set_ylabel("acc. (m/s$^2$)", labelpad=2)
     ax.set_xlim(0.0, 5.0)
-    ax.set_ylim(-1.18, 1.20)
+    ax.set_ylim(-1.18, 1.85)
     panel_label(ax, "(a)")
     style_axes(ax, grid=True)
     safe_legend(ax, loc="upper right", ncol=2)
@@ -43,14 +43,23 @@ def main() -> None:
     mask = (time >= xlim[0]) & (time <= xlim[1])
     ymin = min(exp[mask].min(), pred[mask].min()) - 0.035
     ymax = max(exp[mask].max(), pred[mask].max()) + 0.035
-    inset = add_zoom_inset(ax, xlim=xlim, ylim=(ymin, ymax), loc="upper left", width="34%", height="30%", connectors=(1, 3))
+    inset = add_zoom_inset(
+        ax,
+        xlim=xlim,
+        ylim=(ymin, ymax),
+        loc="upper left",
+        width="31%",
+        height="24%",
+        connectors=(1, 3),
+        ypad_fraction=0.12,
+    )
     inset.plot(time, exp, color=SCI_PALETTE["experiment"], lw=0.9)
     inset.plot(time, pred, color=SCI_PALETTE["identified"], lw=0.9, ls="--")
     inset.set_xlabel("")
     inset.set_ylabel("")
 
     out_dir = Path(__file__).resolve().parent / "output"
-    save_figure(fig, "demo_validation_inset_zoom", out_dir=out_dir, formats=("png",), pad_inches=0.05)
+    save_figure(fig, "demo_validation_inset_zoom", out_dir=out_dir, formats=("png",), pad_inches=0.08)
     plt.close(fig)
     print(out_dir)
 

@@ -176,6 +176,10 @@ inset.plot(time, experiment, color="black")
 inset.plot(time, identified, color="#E41A1C", ls="--")
 ```
 
+Leave extra blank space in the parent axes for the inset, for example by widening `ylim`, and save inset figures with a slightly larger `pad_inches` such as `0.06-0.08`.
+
+建议在主图中通过放宽 `ylim` 给局部放大图留出空白区域，并用稍大的 `pad_inches`，例如 `0.06-0.08`，避免刻度或连接线贴边。
+
 ## Recommended Working Folder / 推荐工作目录
 
 Use the skill folder as a reusable template library. Put user-specific plotting scripts and generated figures in your own paper/project workspace, not inside the installed skill folder.

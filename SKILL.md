@@ -69,7 +69,7 @@ For each exported figure, collect:
 - Keep labels, legends, line widths, markers, grid visibility, inset zooms, and colorbar placement consistent across the same figure family.
 - Keep legends and grid lines secondary to data: use `safe_legend()` or an empty corner for legends, place dense legends outside the axes, and keep grid lines light, behind plotted data, and never visually dominant.
 - Keep layouts compact but never crop axis labels; use `constrained_layout=True`, small `labelpad`, and save with a safety `pad_inches` around `0.04`.
-- Use local zoom insets when a validation, FRF, or peak-region figure needs to show small differences without losing the full trend.
+- Use local zoom insets when a validation, FRF, or peak-region figure needs to show small differences without losing the full trend; reserve blank space in the parent axes and save with extra padding.
 - Avoid using JPEG as the only master format for generated plots; JPEG is acceptable only as a preview copy.
 
 ## Axis Label Conventions

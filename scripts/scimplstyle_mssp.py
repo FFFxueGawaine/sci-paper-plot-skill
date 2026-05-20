@@ -112,19 +112,41 @@ def add_zoom_inset(
     loc: str = "upper right",
     width: str = "36%",
     height: str = "36%",
-    borderpad: float = 0.8,
+    borderpad: float = 1.0,
     connectors: tuple[int, int] = (2, 4),
     grid: bool = True,
+    ypad_fraction: float = 0.08,
+    tick_side: Literal["auto", "left", "right"] = "auto",
 ) -> Any:
     """Create a compact local zoom inset and mark its region on the parent axes."""
     import matplotlib as mpl
+    from matplotlib.ticker import MaxNLocator
     from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
+
+    y0, y1 = ylim
+    if ypad_fraction > 0:
+        ypad = (y1 - y0) * ypad_fraction
+        y0 -= ypad
+        y1 += ypad
 
     inset = inset_axes(ax, width=width, height=height, loc=loc, borderpad=borderpad)
     inset.set_xlim(*xlim)
-    inset.set_ylim(*ylim)
+    inset.set_ylim(y0, y1)
     style_axes(inset, grid=grid)
-    inset.tick_params(labelsize=max(int(mpl.rcParams.get("font.size", 10)) - 2, 6), pad=1)
+    inset.xaxis.set_major_locator(MaxNLocator(nbins=3, prune="both"))
+    inset.yaxis.set_major_locator(MaxNLocator(nbins=3, prune="both"))
+    inset_font = max(int(mpl.rcParams.get("font.size", 10)) - 2, 6)
+    inset.tick_params(labelsize=inset_font, pad=1)
+    if tick_side == "auto":
+        tick_side = "right" if "left" in loc else "left"
+    if tick_side == "right":
+        inset.yaxis.tick_right()
+    else:
+        inset.yaxis.tick_left()
+    if "lower" in loc:
+        inset.xaxis.tick_top()
+    else:
+        inset.xaxis.tick_bottom()
     mark_inset(ax, inset, loc1=connectors[0], loc2=connectors[1], fc="none", ec="0.45", lw=0.6)
     return inset
 
