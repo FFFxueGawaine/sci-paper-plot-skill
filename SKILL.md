@@ -34,11 +34,13 @@ Use these categories for paper figure inventories:
 
 - Model structure / mechanism schematic
 - Nonlinear stiffness or physical relation curve
+- Duffing / Van der Pol / pendulum / Bouc-Wen nonlinear system analysis
 - Time-domain response
 - Frequency response / FRF
 - Time-frequency / spectrogram
 - Posterior distribution / KDE / uncertainty
 - Model validation / prediction comparison
+- Nonlinear system identification / sparse candidate-library coefficients
 - Exploratory prior or candidate-library screening
 
 For each exported figure, collect:
@@ -98,14 +100,14 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 
 - `references/mssp-compact-dynamics-style.md`: generalized style reference for the MSSP Compact Dynamics plotting style.
 - `references/adaptation-guide.md`: rules for adapting arbitrary plotting code or existing images into the style without forcing exact demo shapes.
-- `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples and their demo files.
+- `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples, including Duffing, Van der Pol, pendulum, Bouc-Wen, and nonlinear identification demo files.
 - `references/machine-learning-figure-examples.md`: machine-learning figure examples such as radar charts, confusion matrices, residual plots, feature importance, and hyperparameter heatmaps.
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures.
 - `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands.
 - `scripts/package_check.py`: lightweight pre-package validation without PyYAML.
-- `scripts/demos/`: runnable Matplotlib demos for validation comparison, uncertainty scatter, FRF comparison, line plot, bar chart, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
+- `scripts/demos/`: runnable Matplotlib demos for validation comparison, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
 - `requirements.txt`: runtime dependencies for demos and audit scripts.
 
 Example use:

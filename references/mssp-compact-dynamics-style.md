@@ -19,6 +19,7 @@ The style was distilled from a private paper figure set during development. Loca
 | Model validation / prediction comparison | Does the identified or learned model reproduce measured response? | black/blue experiment line, red identified/proposed line, optional confidence band | standardize legend, use `time (s)`, keep line hierarchy clear |
 | Posterior distribution / KDE | Where are the posterior mass and uncertainty concentrated? | KDE or scatter density, colorbar, true/estimated markers, compact annotations | standardize colorbar, marker size, decimal precision, annotation placement |
 | Physical relation / nonlinear stiffness | How does force, stiffness, or restoring relation vary with displacement? | one- or two-panel curve family, optional dashed components | keep formulas readable and avoid oversized annotations |
+| Duffing / nonlinear system identification | Does the identified nonlinear model reproduce response and recover physical terms? | time validation, phase portrait, restoring force curve, coefficient bars | pair response validation with interpretable coefficients or library terms |
 | Time-frequency / spectrogram | Where do transient frequency components appear in time? | top time response, bottom time-frequency energy map | use shared axis labeling and add colorbar only when it explains amplitude scale |
 | FRF / frequency response | How do resonance peaks, damping, and nonlinear shifts compare? | blue/black/red curves, dB magnitude, frequency axis | use `fre. (Hz)` or `frequency (Hz)` consistently |
 | Candidate library screening | Which terms or features dominate the discovered model? | stem or horizontal bar chart | double-column layout for many terms; shorten x labels if crowded |
@@ -29,6 +30,16 @@ The style was distilled from a private paper figure set during development. Loca
 | Bifurcation diagram | How does response branch as excitation or system parameter changes? | dense parameter-response scatter | use tiny markers and avoid connecting branches with lines |
 | Basin of attraction | Which initial conditions converge to different attractors? | classified initial-condition map | use restrained discrete colormap and compact colorbar |
 | Error boxplot | How robust is each method over repeated trials? | boxplot, violin plot, or ECDF | emphasize median and distribution, not only the mean |
+
+## Common Nonlinear Systems
+
+Use these systems as common template anchors:
+
+- Duffing: cubic stiffness; use time validation, phase portrait, restoring force, FRF/backbone, and parameter identification panels.
+- Van der Pol: self-excited limit cycle; use phase portrait and amplitude-convergence panels.
+- Nonlinear pendulum: sine restoring force and separatrix; use angle-phase and energy-like views.
+- Bouc-Wen: hysteretic restoring force; use `force (N)` vs `dis. (mm)` loops and cyclic validation.
+- Piecewise/freeplay oscillator: clearance or segmented stiffness; use event-marked time response, restoring force, bifurcation, and Poincare plots.
 
 ## Naming Pattern
 

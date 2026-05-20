@@ -25,6 +25,7 @@ Style name: MSSP Compact Dynamics.
 - Validation plots: experiment in black or blue; identified/proposed in red dashed.
 - KDE plots: use density colorbar, true/estimated markers, compact RE annotations.
 - FRF plots: use blue/black/red line hierarchy and dB magnitude.
+- Nonlinear dynamics demos: use Duffing, Van der Pol, pendulum, Bouc-Wen, restoring-force, and sparse-library plots as template anchors.
 - ML plots: prefer bar/box/heatmap for precise comparison; use radar charts only as compact summary views.
 - Confusion matrices and heatmaps: annotate compactly and keep colorbars with explicit units.
 - Gallery figures: choose the plot family by manuscript purpose; avoid decorative chart types when a line, bar, or boxplot is clearer.
