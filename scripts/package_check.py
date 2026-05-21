@@ -28,6 +28,7 @@ REQUIRED_FILES = [
     "scripts/audit_figures.py",
     "references/mssp-compact-dynamics-style.md",
     "references/codex-beginner-guide.md",
+    "references/pre-run-brief.zh-CN.md",
     "references/adaptation-guide.md",
     "references/mssp-nonlinear-dynamics-examples.md",
     "references/hb-clearance-paper-figure-templates.md",
@@ -157,7 +158,7 @@ def check_demo_count(root: Path, expected_minimum: int = 20) -> list[str]:
 def check_beginner_guide(root: Path) -> list[str]:
     problems: list[str] = []
     cli_text = read_text(root / "scripts" / "scimplstyle_mssp_cli.py")
-    for command in ["beginner-guide", "recommend", "preview-gallery", "check-demos"]:
+    for command in ["beginner-guide", "run-brief", "recommend", "preview-gallery", "check-demos"]:
         if command not in cli_text:
             problems.append(f"CLI is missing {command} subcommand")
     demo_names = set(path.name for path in (root / "scripts" / "demos").glob("demo_*.py"))

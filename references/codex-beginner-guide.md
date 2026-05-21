@@ -47,6 +47,7 @@ Use $sci-paper-plot-skill. Please adapt the closest demo to my CSV/TXT/NPY data 
 | Check what figures you already have / 先看已有图片属于什么类型 | `python scripts/scimplstyle_mssp_cli.py audit "<paper-figure-folder>" --markdown` | You get a figure inventory before changing anything. / 不改原图，先得到图片清单。 |
 | See all available examples / 看当前有哪些可用示例 | `python scripts/scimplstyle_mssp_cli.py list-demos` | It shows the real demo files installed in the skill. / 看到真实存在的 demo 文件。 |
 | Get a beginner menu / 我不知道该选哪个图 | `python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh` | It maps user goals to templates without requiring API knowledge. / 不需要先懂 API，按目标找模板。 |
+| Collect a pre-run brief / 运行前先问清楚需求 | `python scripts/scimplstyle_mssp_cli.py run-brief --lang zh` | It lists the questions Codex should ask before writing scripts or figures. / 在写脚本或生成图片前先收集目标、数据和输出位置。 |
 | Ask for automatic recommendation / 让命令自动推荐模板 | `python scripts/scimplstyle_mssp_cli.py recommend "误差分布" --lang zh` | It uses local demo metadata and keywords to suggest the closest demos. / 用本地 demo 索引和关键词推荐模板。 |
 | Preview curated demos / 看精选 demo 的预览图册 | `python scripts/scimplstyle_mssp_cli.py preview-gallery "<output-folder>" --set curated` | It generates PNG previews outside the skill package. / 在 skill 外部生成图册，不污染安装目录。 |
 | Check generated previews / 检查 demo 预览图是否正常 | `python scripts/scimplstyle_mssp_cli.py check-demos "<output-folder>" --set curated` | It checks PNG existence, size, and nonblank pixels. / 检查图片存在、尺寸和非空白像素。 |
@@ -61,9 +62,10 @@ Use $sci-paper-plot-skill. Please adapt the closest demo to my CSV/TXT/NPY data 
 2. Run an audit before editing anything.
 3. Tell the user the figure categories in simple language.
 4. Pick one figure type first, not the whole paper.
-5. Copy or write the demo into the user's workspace.
-6. Generate a PNG and inspect it.
-7. Only then replace placeholder data with real project data.
+5. Before writing files or running a plotting script, collect the pre-run brief: goal, data source, output folder, language/font, panel-label position, and layout.
+6. Copy or write the demo into the user's workspace.
+7. Generate a PNG and inspect it.
+8. Only then replace placeholder data with real project data.
 
 ## What Codex Should Avoid
 
@@ -84,3 +86,4 @@ When explaining to a new user:
 - Report absolute paths for generated scripts and outputs.
 - If the user says they do not know which plot type to choose, run or summarize `python scripts/scimplstyle_mssp_cli.py beginner-guide` first.
 - For Chinese users, prefer `README.zh-CN.md`, `references/plot-type-map.zh-CN.md`, and `python scripts/scimplstyle_mssp_cli.py recommend "<目标>" --lang zh`.
+- Before file-writing operations, use `references/pre-run-brief.zh-CN.md` or `python scripts/scimplstyle_mssp_cli.py run-brief --lang zh` to ask for the missing user prompt fields first.

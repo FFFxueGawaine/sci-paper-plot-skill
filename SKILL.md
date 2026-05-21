@@ -20,6 +20,8 @@ Style name: `MSSP Compact Dynamics`.
 
 If the user says they are a beginner, first-time user, unsure how to start, do not know which plot type to choose, writes mainly in Chinese, or asks Codex to help pick a template, read `references/codex-beginner-guide.md` and, for Chinese users, `README.zh-CN.md` plus `references/plot-type-map.zh-CN.md` first. Guide them through Level 1, Level 2, or Level 3, and recommend a template by user goal before explaining Matplotlib or Seaborn API details.
 
+Before running any operation that writes files, copies demos, generates figures, checks demo previews, or replaces placeholder data with real data, collect a short pre-run brief from the user. At minimum confirm the figure goal, data source, output folder outside the skill package, language/font choice, panel-label position, and layout constraints. Read `references/pre-run-brief.zh-CN.md` or run `scripts/scimplstyle_mssp_cli.py run-brief --lang zh` for Chinese beginner users. Read-only commands such as `beginner-guide`, `recommend`, `list-demos`, and `style-guide` can be run without this pre-run brief.
+
 Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Python code. Treat terminal mojibake as display-only; inspect bytes/files with UTF-8 aware tools before calling text corrupted.
 
 ## Workspace Usage
@@ -115,6 +117,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/mssp-compact-dynamics-style.md`: generalized style reference for the MSSP Compact Dynamics plotting style.
 - `README.zh-CN.md`: Chinese-first quickstart for beginner users.
 - `references/codex-beginner-guide.md`: beginner-friendly Codex usage guide with levels, prompts, and common workflows.
+- `references/pre-run-brief.zh-CN.md`: Chinese pre-run prompt checklist for collecting user intent before file-writing plot operations.
 - `references/adaptation-guide.md`: rules for adapting arbitrary plotting code or existing images into the style without forcing exact demo shapes.
 - `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples, including Duffing, Van der Pol, pendulum, Bouc-Wen, and nonlinear identification demo files.
 - `references/hb-clearance-paper-figure-templates.md`: figure-by-figure template map for the hierarchical Bayesian clearance-type nonlinear system paper.
@@ -136,6 +139,7 @@ Example use:
 ```powershell
 python scripts/audit_figures.py "<paper-figure-folder>" --markdown
 python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh
+python scripts/scimplstyle_mssp_cli.py run-brief --lang zh
 python scripts/scimplstyle_mssp_cli.py recommend "误差分布" --lang zh
 python scripts/scimplstyle_mssp_cli.py list-demos
 python scripts/scimplstyle_mssp_cli.py style-guide

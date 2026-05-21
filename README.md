@@ -104,6 +104,12 @@ Show the beginner template-selection guide:
 python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh
 ```
 
+Print the pre-run brief before copying demos or generating figures:
+
+```bash
+python scripts/scimplstyle_mssp_cli.py run-brief --lang zh
+```
+
 Recommend demos by a natural-language goal:
 
 ```bash
@@ -152,6 +158,7 @@ The skill currently covers these reusable figure families:
 
 For a full lookup table, open `references/common-plot-types-catalog.md`.
 For Chinese users, open `references/plot-type-map.zh-CN.md` or `README.zh-CN.md`.
+Before running file-writing plot operations, open `references/pre-run-brief.zh-CN.md` or print `python scripts/scimplstyle_mssp_cli.py run-brief --lang zh`.
 
 ## Beginner Mode / Codex 新手引导
 
