@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import shutil
+import sys
 from pathlib import Path
 
 from audit_figures import build_inventory, markdown_table
@@ -30,6 +31,7 @@ Style name: MSSP Compact Dynamics.
 - ML plots: prefer bar/box/heatmap for precise comparison; use radar charts only as compact summary views.
 - Confusion matrices and heatmaps: annotate compactly and keep colorbars with explicit units.
 - Gallery figures: choose the plot family by manuscript purpose; avoid decorative chart types when a line, bar, or boxplot is clearer.
+- Hierarchical Bayesian clearance paper: use `references/hb-clearance-paper-figure-templates.md` and `demo_hb_clearance_templates.py` for Fig. 1-Fig. 18 template coverage.
 """
 
 
@@ -66,7 +68,10 @@ def write_or_print(text: str, output: Path | None) -> None:
     if output:
         output.write_text(text.rstrip() + "\n", encoding="utf-8")
     else:
-        print(text.rstrip())
+        try:
+            print(text.rstrip())
+        except UnicodeEncodeError:
+            sys.stdout.buffer.write((text.rstrip() + "\n").encode("utf-8"))
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -1,6 +1,6 @@
 ---
 name: sci-paper-plot-skill
-description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, mechanical nonlinear dynamics figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
+description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, mechanical nonlinear dynamics figures, clearance-type nonlinear system figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
 ---
 
 # Sci Paper Plot Skill
@@ -43,6 +43,7 @@ Use these categories for paper figure inventories:
 - Model validation / prediction comparison
 - Nonlinear system identification / sparse candidate-library coefficients
 - Exploratory prior or candidate-library screening
+- Clearance-type nonlinear system / hierarchical Bayesian identification template
 
 For each exported figure, collect:
 
@@ -103,13 +104,14 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/mssp-compact-dynamics-style.md`: generalized style reference for the MSSP Compact Dynamics plotting style.
 - `references/adaptation-guide.md`: rules for adapting arbitrary plotting code or existing images into the style without forcing exact demo shapes.
 - `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples, including Duffing, Van der Pol, pendulum, Bouc-Wen, and nonlinear identification demo files.
+- `references/hb-clearance-paper-figure-templates.md`: figure-by-figure template map for the hierarchical Bayesian clearance-type nonlinear system paper.
 - `references/machine-learning-figure-examples.md`: machine-learning figure examples such as radar charts, confusion matrices, residual plots, feature importance, and hyperparameter heatmaps.
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.
 - `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands.
 - `scripts/package_check.py`: lightweight pre-package validation without PyYAML.
-- `scripts/demos/`: runnable Matplotlib demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
+- `scripts/demos/`: runnable Matplotlib demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, hierarchical Bayesian clearance-system figures, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
 - `requirements.txt`: runtime dependencies for demos and audit scripts.
 
 Example use:

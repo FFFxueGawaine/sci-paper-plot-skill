@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -118,6 +119,14 @@ def markdown_table(inventory: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def write_stdout(text: str) -> None:
+    """Write UTF-8 text even when the Windows console defaults to GBK."""
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        sys.stdout.buffer.write((text + "\n").encode("utf-8"))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path, help="Paper directory to inspect")
@@ -131,7 +140,7 @@ def main() -> None:
     if args.output:
         args.output.write_text(text + "\n", encoding="utf-8")
     else:
-        print(text)
+        write_stdout(text)
 
 
 if __name__ == "__main__":

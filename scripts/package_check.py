@@ -27,6 +27,7 @@ REQUIRED_FILES = [
     "references/mssp-compact-dynamics-style.md",
     "references/adaptation-guide.md",
     "references/mssp-nonlinear-dynamics-examples.md",
+    "references/hb-clearance-paper-figure-templates.md",
     "references/machine-learning-figure-examples.md",
     "references/matplotlib-gallery-examples.md",
 ]

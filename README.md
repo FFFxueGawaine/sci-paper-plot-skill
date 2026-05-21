@@ -14,6 +14,20 @@ The default visual style is still named `MSSP Compact Dynamics`, and the Python 
 
 默认视觉风格仍称为 `MSSP Compact Dynamics`，Python 辅助模块仍保留为 `scimplstyle_mssp`，方便兼容已有 demo 和代码。
 
+## Reference Paper / 参考论文
+
+This skill now includes a figure-by-figure template map for:
+
+本 skill 已加入以下论文的逐图绘制模板：
+
+- Yusheng Wang, Hui Qian, Qinghua Liu, Yinhang Ma, Dong Jiang. **Hierarchical Bayesian model for identifying clearance-type nonlinear system**. *Mechanical Systems and Signal Processing*, 235, 112891, 2025.
+- DOI: [10.1016/j.ymssp.2025.112891](https://doi.org/10.1016/j.ymssp.2025.112891)
+- ScienceDirect: [article page](https://www.sciencedirect.com/science/article/abs/pii/S0888327025005928)
+
+The template map is in `references/hb-clearance-paper-figure-templates.md`, and the runnable placeholder demo is `scripts/demos/demo_hb_clearance_templates.py`.
+
+逐图模板说明位于 `references/hb-clearance-paper-figure-templates.md`，可运行的占位数据模板脚本是 `scripts/demos/demo_hb_clearance_templates.py`。
+
 ## Example Figures / 示例图片
 
 <table>
@@ -71,6 +85,7 @@ The default visual style is still named `MSSP Compact Dynamics`, and the Python 
 | `demo_duffing_identification.py` | Duffing time validation, phase portrait, restoring force, identified coefficients / Duffing 时域验证、相图、恢复力、参数辨识 |
 | `demo_nonlinear_systems_gallery.py` | Duffing, Van der Pol, pendulum, and Bouc-Wen comparison / 常见非线性系统对比 |
 | `demo_nonlinear_identification_library.py` | Sparse candidate-library coefficients and prediction residual / 稀疏候选库系数与预测残差 |
+| `demo_hb_clearance_templates.py` | Fig. 1-Fig. 18 templates for the hierarchical Bayesian clearance-system paper / 层次贝叶斯间隙非线性论文逐图模板 |
 | `demo_validation_inset_zoom.py` | Full validation curve with local magnified inset / 带局部放大图的整体验证曲线 |
 | `demo_phase_poincare.py` | Phase portrait and Poincare section / 相图与 Poincare 截面 |
 | `demo_bifurcation_diagram.py` | Bifurcation-style response branches / 分岔响应分支 |
@@ -130,6 +145,18 @@ python demo_line_plot.py
 The generated PNG files will be written to `paper-plot-workspace/output/`.
 
 生成的 PNG 图片会写入 `paper-plot-workspace/output/`。
+
+Run the hierarchical Bayesian clearance-system template set:
+
+运行层次贝叶斯间隙非线性论文的逐图模板：
+
+```bash
+python scripts/demos/demo_hb_clearance_templates.py
+```
+
+This generates placeholder templates for Fig. 1 through Fig. 18. Replace the synthetic arrays with manuscript data when regenerating a real figure.
+
+该脚本会生成 Fig. 1 至 Fig. 18 的占位模板。真正复现论文图时，把脚本中的合成数组替换成论文数据即可。
 
 Audit a figure folder:
 
