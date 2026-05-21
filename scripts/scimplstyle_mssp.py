@@ -79,22 +79,74 @@ def panel_label(
     x: float = 0.5,
     y: float = 1.04,
     size: int | None = None,
+    loc: Literal["top-center", "upper-left", "bottom-center", "lower-left"] | None = None,
+    ha: Literal["left", "center", "right"] | None = None,
+    va: Literal["top", "center", "bottom"] | None = None,
+    fontfamily: str | None = None,
 ) -> None:
-    """Place a bold panel label such as '(a)' above an axes."""
+    """Place a bold panel label such as '(a)' in a journal-compatible location.
+
+    The default keeps the historical top-center placement. Set ``loc`` for
+    common alternatives:
+    ``"upper-left"`` for inside the top-left corner, or ``"bottom-center"``
+    when a journal wants panel labels below each axes.
+    """
     if size is None:
         import matplotlib as mpl
 
         size = int(mpl.rcParams.get("font.size", 10)) + 4
+    if loc is not None:
+        presets = {
+            "top-center": (0.5, 1.04, "center", "bottom"),
+            "upper-left": (0.02, 0.98, "left", "top"),
+            "bottom-center": (0.5, -0.20, "center", "top"),
+            "lower-left": (0.02, -0.20, "left", "top"),
+        }
+        x, y, preset_ha, preset_va = presets[loc]
+        if ha is None:
+            ha = preset_ha
+        if va is None:
+            va = preset_va
+    if ha is None:
+        ha = "center"
+    if va is None:
+        va = "bottom"
+    text_kwargs: dict[str, Any] = {}
+    if fontfamily is not None:
+        text_kwargs["fontfamily"] = fontfamily
     ax.text(
         x,
         y,
         label,
         transform=ax.transAxes,
-        ha="center",
-        va="bottom",
+        ha=ha,
+        va=va,
         fontweight="bold",
         fontsize=size,
+        **text_kwargs,
     )
+
+
+def set_panel_title(
+    ax: Any,
+    title: str,
+    fontfamily: str | None = None,
+    lang: Literal["en", "zh"] = "en",
+    pad: float = 3.0,
+    **kwargs: Any,
+) -> Any:
+    """Set a panel title with an optional Chinese font.
+
+    Use ``lang="zh"`` or ``fontfamily="SimSun"`` for Chinese manuscript
+    figures. English SCI figures should normally keep the global Times New Roman
+    style set by ``apply_sci_style``.
+    """
+    if fontfamily is None and lang == "zh":
+        fontfamily = "SimSun"
+    if fontfamily is not None:
+        kwargs.setdefault("fontfamily", fontfamily)
+    kwargs.setdefault("pad", pad)
+    return ax.set_title(title, **kwargs)
 
 
 def style_axes(ax: Any, grid: bool = False) -> None:

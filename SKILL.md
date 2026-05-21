@@ -74,6 +74,8 @@ For each exported figure, collect:
 - For these demos, export `PNG` at `600 dpi` by default; generate `PDF` or `SVG` only when explicitly requested by the user or journal.
 - Use single-column width around `85 mm`; double-column width around `170-180 mm`.
 - Use bold panel labels `(a)`, `(b)`, `(c)` consistently; default to `base_size + 4 pt`, e.g. `14 pt` when base text is `10 pt`.
+- Place panel labels according to the journal template: top-center, upper-left, bottom-center, and lower-left are all valid when used consistently.
+- Keep title fonts configurable: use Times New Roman for English SCI titles, and allow SimSun (`宋体`) for Chinese report or Chinese-title figures.
 - Write units with a space before parentheses: `time (s)`, `fre. (Hz)`, `dis. (mm)`, `mag. (dB)`.
 - Prefer lowercase compact quantity labels such as `dis.`, `vel.`, `acc.`, `amp.`, `mag.`, `err.`, and `loss`; keep official unit capitalization such as `Hz`, `N`, `MPa`, and `dB`.
 - Keep labels, legends, line widths, markers, grid visibility, inset zooms, and colorbar placement consistent across the same figure family.
@@ -120,6 +122,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
 - `references/common-plot-types-catalog.md`: compact lookup table for common Matplotlib and Seaborn plot types and their manuscript uses.
 - `references/plot-type-map.zh-CN.md`: Chinese plot type lookup table mapping user wording to Matplotlib/Seaborn APIs and demos.
+- `references/figure-quality-constraints.zh-CN.md`: Chinese checklist for layout, language, title font, panel-label placement, units, and export constraints.
 - `references/demo-index.json`: machine-readable demo metadata used by `recommend`, `preview-gallery`, and `check-demos`.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.

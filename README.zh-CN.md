@@ -49,6 +49,7 @@ python scripts/scimplstyle_mssp_cli.py audit "<论文图片文件夹>" --markdow
 - 论文场景图：Fig. 14 风格一排三列响应图、FRF 对比、时频图、局部放大验证图、后验/KDE 不确定性图、机器学习评价图。
 
 更完整的中文对照表见 `references/plot-type-map.zh-CN.md`。
+论文图片的布局、语言、字体和导出约束见 `references/figure-quality-constraints.zh-CN.md`。
 
 ## 推荐工作流
 
@@ -65,3 +66,5 @@ python scripts/scimplstyle_mssp_cli.py audit "<论文图片文件夹>" --markdow
 - 不要第一步就改原始论文图片或 Notebook。
 - 不要一次复刻整篇论文，先完成一类图。
 - 最终论文图优先 Matplotlib 精确排版；分组表格数据优先 Seaborn 快速探索。
+- `(a)(b)(c)` 标号位置按期刊模板统一选择，可以放上方、左上角或下方。
+- 英文 SCI 标题默认 Times New Roman；中文报告标题可选宋体。

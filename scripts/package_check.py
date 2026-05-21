@@ -35,6 +35,7 @@ REQUIRED_FILES = [
     "references/matplotlib-gallery-examples.md",
     "references/common-plot-types-catalog.md",
     "references/plot-type-map.zh-CN.md",
+    "references/figure-quality-constraints.zh-CN.md",
     "references/demo-index.json",
 ]
 
