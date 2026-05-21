@@ -1,5 +1,7 @@
 # Runtime dependencies for sci-paper-plot-skill demos, audit scripts, and validation.
 numpy>=1.23
 matplotlib>=3.7
+pandas>=1.5
+seaborn>=0.13
 Pillow>=9.0
 PyYAML>=6.0

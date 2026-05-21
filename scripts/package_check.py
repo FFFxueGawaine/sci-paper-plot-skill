@@ -31,6 +31,7 @@ REQUIRED_FILES = [
     "references/hb-clearance-paper-figure-templates.md",
     "references/machine-learning-figure-examples.md",
     "references/matplotlib-gallery-examples.md",
+    "references/common-plot-types-catalog.md",
 ]
 
 

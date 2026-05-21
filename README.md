@@ -42,8 +42,10 @@ The current paper-specific example is:
 Resources:
 
 - `references/hb-clearance-paper-figure-templates.md` - Fig. 1-Fig. 18 classification and template map.
+- `references/common-plot-types-catalog.md` - common Matplotlib and Seaborn plot-type catalog.
 - `scripts/demos/demo_hb_clearance_templates.py` - one runnable template function set for Fig. 1-Fig. 18.
 - `scripts/demos/demo_hb_fig14_three_column.py` - Fig. 14-style one-row three-column response demo.
+- `scripts/demos/demo_seaborn_common_gallery.py` - common Seaborn templates for tidy `DataFrame` plotting.
 
 ## Recommended Installation / 建议安装方式
 
@@ -110,6 +112,22 @@ Run the Fig. 14 one-row three-column demo:
 ```bash
 python scripts/demos/demo_hb_fig14_three_column.py
 ```
+
+Run the common Seaborn gallery:
+
+```bash
+python scripts/demos/demo_seaborn_common_gallery.py
+```
+
+## Current Plot Types / 当前绘图类型
+
+The skill currently covers these reusable figure families:
+
+- **Matplotlib engineering templates:** line, scatter, confidence band, errorbar, stem, grouped/stacked/horizontal bar, histogram, KDE-like density, boxplot, violin plot, ECDF, contour, contourf, pcolormesh, quiver, streamplot, surface, wireframe.
+- **Seaborn statistical templates:** scatterplot, lineplot, regplot, residplot, histplot, kdeplot, ecdfplot, rugplot, boxplot, violinplot, stripplot, swarmplot, barplot, pointplot, countplot, heatmap, pairplot, relplot, catplot, displot.
+- **Paper-specific SCI templates:** Fig. 14-style one-row three-column response plot, FRF comparison, time-frequency map, validation with inset zoom, posterior/KDE uncertainty, sparse candidate-library selection, machine-learning curves and matrices.
+
+For a full lookup table, open `references/common-plot-types-catalog.md`.
 
 ## Beginner Mode / Codex 新手引导
 

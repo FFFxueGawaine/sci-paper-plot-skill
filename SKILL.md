@@ -1,6 +1,6 @@
 ---
 name: sci-paper-plot-skill
-description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, beginner-friendly Codex plotting guidance, mechanical nonlinear dynamics figures, clearance-type nonlinear system figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
+description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib or Seaborn figures, SCI manuscript plot style guidance, beginner-friendly Codex plotting guidance, mechanical nonlinear dynamics figures, clearance-type nonlinear system figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
 ---
 
 # Sci Paper Plot Skill
@@ -104,7 +104,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 ## Dependencies
 
 - Python 3.9 or later.
-- Runtime packages: `numpy`, `matplotlib`, and `Pillow`.
+- Runtime packages: `numpy`, `matplotlib`, `pandas`, `seaborn`, and `Pillow`.
 - Validation package: `PyYAML`, used by external skill validation helpers.
 - Install with `python -m pip install -r requirements.txt` from the skill directory.
 
@@ -117,11 +117,12 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/hb-clearance-paper-figure-templates.md`: figure-by-figure template map for the hierarchical Bayesian clearance-type nonlinear system paper.
 - `references/machine-learning-figure-examples.md`: machine-learning figure examples such as radar charts, confusion matrices, residual plots, feature importance, and hyperparameter heatmaps.
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
+- `references/common-plot-types-catalog.md`: compact lookup table for common Matplotlib and Seaborn plot types and their manuscript uses.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.
 - `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands.
 - `scripts/package_check.py`: lightweight pre-package validation without PyYAML.
-- `scripts/demos/`: runnable Matplotlib demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, hierarchical Bayesian clearance-system figures, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, and broader Matplotlib gallery figures.
+- `scripts/demos/`: runnable Matplotlib and Seaborn demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, hierarchical Bayesian clearance-system figures, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, broader Matplotlib gallery figures, and common Seaborn `DataFrame` plot types.
 - `requirements.txt`: runtime dependencies for demos and audit scripts.
 
 Example use:
