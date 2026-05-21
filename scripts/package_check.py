@@ -106,6 +106,8 @@ def check_no_generated_outputs(root: Path) -> list[str]:
             rel_path = path.relative_to(root)
             if rel_path.parts[:2] == ("assets", "examples") and path.suffix.lower() == ".png":
                 continue
+            if rel_path.parts[:2] == ("assets", "paper-figures") and path.suffix.lower() in {".jpg", ".jpeg", ".png"}:
+                continue
             problems.append(f"generated output should not be packaged: {path.relative_to(root)}")
     return problems
 

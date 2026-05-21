@@ -28,6 +28,99 @@ The template map is in `references/hb-clearance-paper-figure-templates.md`, and 
 
 逐图模板说明位于 `references/hb-clearance-paper-figure-templates.md`，可运行的占位数据模板脚本是 `scripts/demos/demo_hb_clearance_templates.py`。
 
+## Paper Figure Preview / 论文图片展示
+
+These are compressed README previews of the available exported manuscript figures. The source archive currently contains Fig. 4-Fig. 12 and Fig. 14-Fig. 18; exported previews for Fig. 1-Fig. 3 and Fig. 13 were not present in the local figure folder used for this update.
+
+下面是已导出论文图的 README 压缩预览。当前本地图像目录中能找到 Fig. 4-Fig. 12 和 Fig. 14-Fig. 18；本次没有在本地图像目录中找到 Fig. 1-Fig. 3 和 Fig. 13 的导出图。
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-004-ppc-kde.jpg" alt="Fig. 4 posterior predictive KDE">
+      <br>
+      <sub>Fig. 4 / Posterior predictive KDE</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-005-library-selection.jpg" alt="Fig. 5 candidate library selection">
+      <br>
+      <sub>Fig. 5 / Candidate library selection</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-006-posterior-density.jpg" alt="Fig. 6 posterior density grid">
+      <br>
+      <sub>Fig. 6 / Posterior density grid</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-007-tristable-schematic.jpg" alt="Fig. 7 tri-stable schematic">
+      <br>
+      <sub>Fig. 7 / Tri-stable mechanism schematic</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-008-piecewise-force.jpg" alt="Fig. 8 piecewise restoring force">
+      <br>
+      <sub>Fig. 8 / Piecewise restoring force</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-009-library-selection.jpg" alt="Fig. 9 candidate library selection">
+      <br>
+      <sub>Fig. 9 / Candidate library selection</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-010-density-triplet.jpg" alt="Fig. 10 posterior density triplet">
+      <br>
+      <sub>Fig. 10 / Posterior density triplet</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-011-joint-posterior.jpg" alt="Fig. 11 joint posterior scatter">
+      <br>
+      <sub>Fig. 11 / Joint posterior scatter</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-012-validation-timeseries.jpg" alt="Fig. 12 validation time series">
+      <br>
+      <sub>Fig. 12 / Validation time series</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-014-time-frequency.jpg" alt="Fig. 14 time-frequency response">
+      <br>
+      <sub>Fig. 14 / Time-frequency response</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-015-time-density.jpg" alt="Fig. 15 time response and density">
+      <br>
+      <sub>Fig. 15 / Time response and density</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-016-joint-posterior.jpg" alt="Fig. 16 experimental joint posterior">
+      <br>
+      <sub>Fig. 16 / Experimental joint posterior</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-017-multidof-validation.jpg" alt="Fig. 17 multi-response validation">
+      <br>
+      <sub>Fig. 17 / Multi-response validation</sub>
+    </td>
+    <td width="50%">
+      <img src="assets/paper-figures/hb-clearance-system/fig-018-force-phase.jpg" alt="Fig. 18 force and phase validation">
+      <br>
+      <sub>Fig. 18 / Force and phase validation</sub>
+    </td>
+  </tr>
+</table>
+
 ## Example Figures / 示例图片
 
 <table>
@@ -248,7 +341,8 @@ sci-paper-plot-skill/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
-│   └── examples/
+│   ├── examples/
+│   └── paper-figures/
 ├── references/
 └── scripts/
     ├── audit_figures.py
@@ -268,9 +362,9 @@ Run the package check before sharing:
 python scripts/package_check.py .
 ```
 
-The package intentionally keeps only curated PNG preview images under `assets/examples/`. Demo-generated outputs should stay outside the skill folder and inside the user's working folder.
+The package intentionally keeps only curated preview images under `assets/examples/` and `assets/paper-figures/`. Demo-generated outputs should stay outside the skill folder and inside the user's working folder.
 
-本仓库只保留 `assets/examples/` 中精选的 PNG 预览图。demo 运行后生成的图片应放在 skill 文件夹外部、用户自己的工作目录中，避免把临时输出打包进去。
+本仓库只保留 `assets/examples/` 和 `assets/paper-figures/` 中精选的预览图。demo 运行后生成的图片应放在 skill 文件夹外部、用户自己的工作目录中，避免把临时输出打包进去。
 
 ## Installation As A Codex Skill / 安装为 Codex Skill
 
