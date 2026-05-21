@@ -18,7 +18,7 @@ Style name: `MSSP Compact Dynamics`.
 7. For figures that do not match a demo exactly, read `references/adaptation-guide.md` and adapt by figure intent, data geometry, and manuscript role.
 8. Treat the skill folder as a template library; place user-specific plotting scripts and generated figures in the user's project workspace.
 
-If the user says they are a beginner, first-time user, unsure how to start, do not know which plot type to choose, or asks Codex to help pick a template, read `references/codex-beginner-guide.md` first. Guide them through Level 1, Level 2, or Level 3, and recommend a template by user goal before explaining Matplotlib or Seaborn API details.
+If the user says they are a beginner, first-time user, unsure how to start, do not know which plot type to choose, writes mainly in Chinese, or asks Codex to help pick a template, read `references/codex-beginner-guide.md` and, for Chinese users, `README.zh-CN.md` plus `references/plot-type-map.zh-CN.md` first. Guide them through Level 1, Level 2, or Level 3, and recommend a template by user goal before explaining Matplotlib or Seaborn API details.
 
 Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Python code. Treat terminal mojibake as display-only; inspect bytes/files with UTF-8 aware tools before calling text corrupted.
 
@@ -111,6 +111,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 ## Resources
 
 - `references/mssp-compact-dynamics-style.md`: generalized style reference for the MSSP Compact Dynamics plotting style.
+- `README.zh-CN.md`: Chinese-first quickstart for beginner users.
 - `references/codex-beginner-guide.md`: beginner-friendly Codex usage guide with levels, prompts, and common workflows.
 - `references/adaptation-guide.md`: rules for adapting arbitrary plotting code or existing images into the style without forcing exact demo shapes.
 - `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples, including Duffing, Van der Pol, pendulum, Bouc-Wen, and nonlinear identification demo files.
@@ -118,6 +119,8 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/machine-learning-figure-examples.md`: machine-learning figure examples such as radar charts, confusion matrices, residual plots, feature importance, and hyperparameter heatmaps.
 - `references/matplotlib-gallery-examples.md`: broader gallery examples for common Matplotlib plot families in SCI-style manuscripts.
 - `references/common-plot-types-catalog.md`: compact lookup table for common Matplotlib and Seaborn plot types and their manuscript uses.
+- `references/plot-type-map.zh-CN.md`: Chinese plot type lookup table mapping user wording to Matplotlib/Seaborn APIs and demos.
+- `references/demo-index.json`: machine-readable demo metadata used by `recommend`, `preview-gallery`, and `check-demos`.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.
 - `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands, including `beginner-guide` for template selection.
@@ -129,9 +132,13 @@ Example use:
 
 ```powershell
 python scripts/audit_figures.py "<paper-figure-folder>" --markdown
-python scripts/scimplstyle_mssp_cli.py style-guide
+python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh
+python scripts/scimplstyle_mssp_cli.py recommend "误差分布" --lang zh
 python scripts/scimplstyle_mssp_cli.py list-demos
+python scripts/scimplstyle_mssp_cli.py style-guide
 python scripts/scimplstyle_mssp_cli.py copy-demos "<demo-output-folder>"
+python scripts/scimplstyle_mssp_cli.py preview-gallery "<preview-output-folder>" --set curated
+python scripts/scimplstyle_mssp_cli.py check-demos "<preview-output-folder>" --set curated
 ```
 
 Example plotting import:

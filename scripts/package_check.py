@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from pathlib import Path
 
@@ -19,6 +20,7 @@ GENERATED_OUTPUT_EXTS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".pdf", ".svg
 REQUIRED_FILES = [
     "SKILL.md",
     "README.md",
+    "README.zh-CN.md",
     "requirements.txt",
     "agents/openai.yaml",
     "scripts/scimplstyle_mssp.py",
@@ -32,6 +34,8 @@ REQUIRED_FILES = [
     "references/machine-learning-figure-examples.md",
     "references/matplotlib-gallery-examples.md",
     "references/common-plot-types-catalog.md",
+    "references/plot-type-map.zh-CN.md",
+    "references/demo-index.json",
 ]
 
 
@@ -152,14 +156,65 @@ def check_demo_count(root: Path, expected_minimum: int = 20) -> list[str]:
 def check_beginner_guide(root: Path) -> list[str]:
     problems: list[str] = []
     cli_text = read_text(root / "scripts" / "scimplstyle_mssp_cli.py")
-    if "beginner-guide" not in cli_text:
-        problems.append("CLI is missing beginner-guide subcommand")
+    for command in ["beginner-guide", "recommend", "preview-gallery", "check-demos"]:
+        if command not in cli_text:
+            problems.append(f"CLI is missing {command} subcommand")
     demo_names = set(path.name for path in (root / "scripts" / "demos").glob("demo_*.py"))
     referenced = set(re.findall(r"`(demo_[A-Za-z0-9_]+\.py)`", cli_text))
     referenced.update(re.findall(r"`(demo_[A-Za-z0-9_]+\.py)`", read_text(root / "references" / "codex-beginner-guide.md")))
+    referenced.update(re.findall(r"`(demo_[A-Za-z0-9_]+\.py)`", read_text(root / "references" / "plot-type-map.zh-CN.md")))
     for demo_name in sorted(referenced):
         if demo_name not in demo_names:
             problems.append(f"beginner guide references missing demo: {demo_name}")
+    return problems
+
+
+def check_demo_index(root: Path) -> list[str]:
+    problems: list[str] = []
+    demo_dir = root / "scripts" / "demos"
+    demo_names = set(path.name for path in demo_dir.glob("demo_*.py"))
+    path = root / "references" / "demo-index.json"
+    try:
+        payload = json.loads(read_text(path))
+    except json.JSONDecodeError as exc:
+        return [f"demo-index.json is invalid JSON: {exc}"]
+    demos = payload.get("demos")
+    if not isinstance(demos, list):
+        return ["demo-index.json must contain a `demos` list"]
+    indexed_names = set()
+    required_fields = {
+        "file",
+        "title_zh",
+        "title_en",
+        "plot_types",
+        "keywords_zh",
+        "keywords_en",
+        "goals_zh",
+        "goals_en",
+        "data_shape_zh",
+        "data_shape_en",
+        "priority",
+        "curated",
+    }
+    curated_count = 0
+    for index, demo in enumerate(demos):
+        if not isinstance(demo, dict):
+            problems.append(f"demo-index entry {index} must be an object")
+            continue
+        missing = sorted(required_fields - set(demo))
+        if missing:
+            problems.append(f"demo-index entry {index} missing fields: {', '.join(missing)}")
+        file_name = str(demo.get("file", ""))
+        if file_name not in demo_names:
+            problems.append(f"demo-index references missing demo: {file_name}")
+        indexed_names.add(file_name)
+        if bool(demo.get("curated")):
+            curated_count += 1
+    missing_index = sorted(demo_names - indexed_names)
+    if missing_index:
+        problems.append(f"demo-index does not cover demos: {', '.join(missing_index)}")
+    if curated_count < 5:
+        problems.append("demo-index should mark at least 5 curated demos")
     return problems
 
 
@@ -175,6 +230,7 @@ def run_checks(root: Path) -> list[str]:
         check_python_syntax,
         check_demo_count,
         check_beginner_guide,
+        check_demo_index,
     ]
     problems: list[str] = []
     for check in checks:

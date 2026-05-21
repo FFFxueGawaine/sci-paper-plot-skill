@@ -41,8 +41,11 @@ The current paper-specific example is:
 
 Resources:
 
+- `README.zh-CN.md` - Chinese-first quickstart for beginner users.
 - `references/hb-clearance-paper-figure-templates.md` - Fig. 1-Fig. 18 classification and template map.
 - `references/common-plot-types-catalog.md` - common Matplotlib and Seaborn plot-type catalog.
+- `references/plot-type-map.zh-CN.md` - Chinese plot type to demo lookup table.
+- `references/demo-index.json` - machine-readable demo metadata for recommendation and preview commands.
 - `scripts/demos/demo_hb_clearance_templates.py` - one runnable template function set for Fig. 1-Fig. 18.
 - `scripts/demos/demo_hb_fig14_three_column.py` - Fig. 14-style one-row three-column response demo.
 - `scripts/demos/demo_seaborn_common_gallery.py` - common Seaborn templates for tidy `DataFrame` plotting.
@@ -98,7 +101,14 @@ python scripts/scimplstyle_mssp_cli.py list-demos
 Show the beginner template-selection guide:
 
 ```bash
-python scripts/scimplstyle_mssp_cli.py beginner-guide
+python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh
+```
+
+Recommend demos by a natural-language goal:
+
+```bash
+python scripts/scimplstyle_mssp_cli.py recommend "误差分布" --lang zh
+python scripts/scimplstyle_mssp_cli.py recommend "time response" --lang en --top 3
 ```
 
 Copy demos to a working folder:
@@ -125,6 +135,13 @@ Run the common Seaborn gallery:
 python scripts/demos/demo_seaborn_common_gallery.py
 ```
 
+Generate a preview gallery outside the skill folder:
+
+```bash
+python scripts/scimplstyle_mssp_cli.py preview-gallery paper-plot-preview --set curated
+python scripts/scimplstyle_mssp_cli.py check-demos paper-plot-preview --set curated
+```
+
 ## Current Plot Types / 当前绘图类型
 
 The skill currently covers these reusable figure families:
@@ -134,6 +151,7 @@ The skill currently covers these reusable figure families:
 - **Paper-specific SCI templates:** Fig. 14-style one-row three-column response plot, FRF comparison, time-frequency map, validation with inset zoom, posterior/KDE uncertainty, sparse candidate-library selection, machine-learning curves and matrices.
 
 For a full lookup table, open `references/common-plot-types-catalog.md`.
+For Chinese users, open `references/plot-type-map.zh-CN.md` or `README.zh-CN.md`.
 
 ## Beginner Mode / Codex 新手引导
 

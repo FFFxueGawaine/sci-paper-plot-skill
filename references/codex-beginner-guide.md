@@ -46,7 +46,10 @@ Use $sci-paper-plot-skill. Please adapt the closest demo to my CSV/TXT/NPY data 
 |---|---|---|
 | Check what figures you already have / 先看已有图片属于什么类型 | `python scripts/scimplstyle_mssp_cli.py audit "<paper-figure-folder>" --markdown` | You get a figure inventory before changing anything. / 不改原图，先得到图片清单。 |
 | See all available examples / 看当前有哪些可用示例 | `python scripts/scimplstyle_mssp_cli.py list-demos` | It shows the real demo files installed in the skill. / 看到真实存在的 demo 文件。 |
-| Get a beginner menu / 我不知道该选哪个图 | `python scripts/scimplstyle_mssp_cli.py beginner-guide` | It maps user goals to templates without requiring API knowledge. / 不需要先懂 API，按目标找模板。 |
+| Get a beginner menu / 我不知道该选哪个图 | `python scripts/scimplstyle_mssp_cli.py beginner-guide --lang zh` | It maps user goals to templates without requiring API knowledge. / 不需要先懂 API，按目标找模板。 |
+| Ask for automatic recommendation / 让命令自动推荐模板 | `python scripts/scimplstyle_mssp_cli.py recommend "误差分布" --lang zh` | It uses local demo metadata and keywords to suggest the closest demos. / 用本地 demo 索引和关键词推荐模板。 |
+| Preview curated demos / 看精选 demo 的预览图册 | `python scripts/scimplstyle_mssp_cli.py preview-gallery "<output-folder>" --set curated` | It generates PNG previews outside the skill package. / 在 skill 外部生成图册，不污染安装目录。 |
+| Check generated previews / 检查 demo 预览图是否正常 | `python scripts/scimplstyle_mssp_cli.py check-demos "<output-folder>" --set curated` | It checks PNG existence, size, and nonblank pixels. / 检查图片存在、尺寸和非空白像素。 |
 | Recreate a one-row three-column response plot / 复刻一排三列响应图 | `demo_hb_fig14_three_column.py` | It is the most direct template for Fig. 14-style comparison. / 最接近 Fig. 14 风格。 |
 | Make common Matplotlib manuscript figures / 画常见 Matplotlib 论文图 | `demo_matplotlib_relation_gallery.py`, `demo_matplotlib_distribution_gallery.py`, `demo_matplotlib_categorical_gallery.py`, `demo_matplotlib_field_gallery.py` | These are best for final paper figures with precise layout control. / 适合最终论文图排版。 |
 | Make common Seaborn grouped plots / 画常见 Seaborn 分组统计图 | `demo_seaborn_common_gallery.py` | It is best when your data is already a tidy `DataFrame`. / 适合已有表格数据。 |
@@ -80,3 +83,4 @@ When explaining to a new user:
 - Offer Level 1, Level 2, and Level 3 as increasing options.
 - Report absolute paths for generated scripts and outputs.
 - If the user says they do not know which plot type to choose, run or summarize `python scripts/scimplstyle_mssp_cli.py beginner-guide` first.
+- For Chinese users, prefer `README.zh-CN.md`, `references/plot-type-map.zh-CN.md`, and `python scripts/scimplstyle_mssp_cli.py recommend "<目标>" --lang zh`.
