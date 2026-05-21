@@ -125,6 +125,7 @@ For the detailed figure-by-figure adaptation notes, see `references/hb-clearance
 | `demo_nonlinear_systems_gallery.py` | Duffing, Van der Pol, pendulum, and Bouc-Wen comparison / 常见非线性系统对比 |
 | `demo_nonlinear_identification_library.py` | Sparse candidate-library coefficients and prediction residual / 稀疏候选库系数与预测残差 |
 | `demo_hb_clearance_templates.py` | Fig. 1-Fig. 18 templates for the hierarchical Bayesian clearance-system paper / 层次贝叶斯间隙非线性论文逐图模板 |
+| `demo_hb_fig14_three_column.py` | Fig. 14-style one-row three-column time-response layout / 仿照 Fig. 14 顶排的一行三列时域响应版式 |
 | `demo_validation_inset_zoom.py` | Full validation curve with local magnified inset / 带局部放大图的整体验证曲线 |
 | `demo_phase_poincare.py` | Phase portrait and Poincare section / 相图与 Poincare 截面 |
 | `demo_bifurcation_diagram.py` | Bifurcation-style response branches / 分岔响应分支 |
@@ -196,6 +197,14 @@ python scripts/demos/demo_hb_clearance_templates.py
 This generates placeholder templates for Fig. 1 through Fig. 18. Replace the synthetic arrays with manuscript data when regenerating a real figure.
 
 该脚本会生成 Fig. 1 至 Fig. 18 的占位模板。真正复现论文图时，把脚本中的合成数组替换成论文数据即可。
+
+Run the Fig. 14-style one-row three-column response demo:
+
+运行仿 Fig. 14 顶排的一行三列时域响应 demo：
+
+```bash
+python scripts/demos/demo_hb_fig14_three_column.py
+```
 
 Audit a figure folder:
 
