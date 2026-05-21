@@ -33,15 +33,22 @@ Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Pyt
 Use these categories for paper figure inventories:
 
 - Model structure / mechanism schematic
+- Bayesian workflow / method-flow schematic
+- Experimental setup / rig schematic or photo redraw
 - Nonlinear stiffness or physical relation curve
+- Clearance basis / piecewise contact relation
 - Duffing / Van der Pol / pendulum / Bouc-Wen nonlinear system analysis
 - Time-domain response
 - Local zoom / inset validation detail
 - Frequency response / FRF
 - Time-frequency / spectrogram
 - Posterior distribution / KDE / uncertainty
+- Posterior predictive check / marginal posterior density
+- Joint posterior scatter / parameter uncertainty map
 - Model validation / prediction comparison
+- Multi-response validation / force-phase validation
 - Nonlinear system identification / sparse candidate-library coefficients
+- Candidate-library selection / sparse-term probability
 - Exploratory prior or candidate-library screening
 - Clearance-type nonlinear system / hierarchical Bayesian identification template
 

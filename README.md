@@ -42,26 +42,26 @@ Run all templates:
 python scripts/demos/demo_hb_clearance_templates.py
 ```
 
-| Figure | Template function | Generated template file |
-|---|---|---|
-| Fig. 1 | `template_fig001_bayesian_workflow` | `Fig.001_bayesian_workflow_template.png` |
-| Fig. 2 | `template_fig002_clearance_basis` | `Fig.002_clearance_basis_template.png` |
-| Fig. 3 | `template_fig003_one_sided_impact` | `Fig.003_one_sided_impact_template.png` |
-| Fig. 4 | `template_fig004_ppc_kde` | `Fig.004_ppc_kde_template.png` |
-| Fig. 5 | `template_fig005_library_selection` | `Fig.005_library_selection_template.png` |
-| Fig. 6 | `template_fig006_posterior_density_grid` | `Fig.006_posterior_density_grid_template.png` |
-| Fig. 7 | `template_fig007_tristable_nes_schematic` | `Fig.007_tristable_nes_schematic_template.png` |
-| Fig. 8 | `template_fig008_piecewise_force` | `Fig.008_piecewise_force_template.png` |
-| Fig. 9 | `template_fig009_library_selection_tristable` | `Fig.009_library_selection_tristable_template.png` |
-| Fig. 10 | `template_fig010_density_triplet` | `Fig.010_density_triplet_template.png` |
-| Fig. 11 | `template_fig011_joint_posterior_scatter` | `Fig.011_joint_posterior_scatter_template.png` |
-| Fig. 12 | `template_fig012_validation_timeseries` | `Fig.012_validation_timeseries_template.png` |
-| Fig. 13 | `template_fig013_experimental_setup` | `Fig.013_experimental_setup_template.png` |
-| Fig. 14 | `template_fig014_time_frequency_composite` | `Fig.014_time_frequency_composite_template.png` |
-| Fig. 15 | `template_fig015_time_hist_clearance` | `Fig.015_time_hist_clearance_template.png` |
-| Fig. 16 | `template_fig016_experimental_joint_posterior` | `Fig.016_experimental_joint_posterior_template.png` |
-| Fig. 17 | `template_fig017_multidof_validation` | `Fig.017_multidof_validation_template.png` |
-| Fig. 18 | `template_fig018_force_phase_validation` | `Fig.018_force_phase_validation_template.png` |
+| Figure | Skill category | Template function | Generated template file |
+|---|---|---|---|
+| Fig. 1 | Bayesian workflow / method-flow schematic | `template_fig001_bayesian_workflow` | `Fig.001_bayesian_workflow_template.png` |
+| Fig. 2 | Clearance basis / piecewise contact relation | `template_fig002_clearance_basis` | `Fig.002_clearance_basis_template.png` |
+| Fig. 3 | Model structure / mechanism schematic | `template_fig003_one_sided_impact` | `Fig.003_one_sided_impact_template.png` |
+| Fig. 4 | Posterior predictive check / marginal posterior density | `template_fig004_ppc_kde` | `Fig.004_ppc_kde_template.png` |
+| Fig. 5 | Candidate-library selection / sparse-term probability | `template_fig005_library_selection` | `Fig.005_library_selection_template.png` |
+| Fig. 6 | Posterior predictive check / marginal posterior density | `template_fig006_posterior_density_grid` | `Fig.006_posterior_density_grid_template.png` |
+| Fig. 7 | Experimental setup / rig schematic or photo redraw | `template_fig007_tristable_nes_schematic` | `Fig.007_tristable_nes_schematic_template.png` |
+| Fig. 8 | Clearance basis / piecewise contact relation | `template_fig008_piecewise_force` | `Fig.008_piecewise_force_template.png` |
+| Fig. 9 | Candidate-library selection / sparse-term probability | `template_fig009_library_selection_tristable` | `Fig.009_library_selection_tristable_template.png` |
+| Fig. 10 | Posterior predictive check / marginal posterior density | `template_fig010_density_triplet` | `Fig.010_density_triplet_template.png` |
+| Fig. 11 | Joint posterior scatter / parameter uncertainty map | `template_fig011_joint_posterior_scatter` | `Fig.011_joint_posterior_scatter_template.png` |
+| Fig. 12 | Model validation / prediction comparison | `template_fig012_validation_timeseries` | `Fig.012_validation_timeseries_template.png` |
+| Fig. 13 | Experimental setup / rig schematic or photo redraw | `template_fig013_experimental_setup` | `Fig.013_experimental_setup_template.png` |
+| Fig. 14 | Time-frequency / spectrogram | `template_fig014_time_frequency_composite` | `Fig.014_time_frequency_composite_template.png` |
+| Fig. 15 | Posterior predictive check / marginal posterior density | `template_fig015_time_hist_clearance` | `Fig.015_time_hist_clearance_template.png` |
+| Fig. 16 | Joint posterior scatter / parameter uncertainty map | `template_fig016_experimental_joint_posterior` | `Fig.016_experimental_joint_posterior_template.png` |
+| Fig. 17 | Multi-response validation / force-phase validation | `template_fig017_multidof_validation` | `Fig.017_multidof_validation_template.png` |
+| Fig. 18 | Multi-response validation / force-phase validation | `template_fig018_force_phase_validation` | `Fig.018_force_phase_validation_template.png` |
 
 For the detailed figure-by-figure adaptation notes, see `references/hb-clearance-paper-figure-templates.md`.
 
