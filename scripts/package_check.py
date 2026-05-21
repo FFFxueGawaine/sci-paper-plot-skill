@@ -25,6 +25,7 @@ REQUIRED_FILES = [
     "scripts/scimplstyle_mssp_cli.py",
     "scripts/audit_figures.py",
     "references/mssp-compact-dynamics-style.md",
+    "references/codex-beginner-guide.md",
     "references/adaptation-guide.md",
     "references/mssp-nonlinear-dynamics-examples.md",
     "references/hb-clearance-paper-figure-templates.md",

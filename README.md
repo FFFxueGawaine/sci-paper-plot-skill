@@ -66,6 +66,12 @@ After installation, ask Codex:
 Use $sci-paper-plot-skill to classify my paper figures and create reusable Matplotlib templates.
 ```
 
+For beginners, start with:
+
+```text
+Use $sci-paper-plot-skill. I am a beginner. Please inspect my paper figure folder, classify the figures, and tell me which demo to start from. Do not edit original files.
+```
+
 For updates:
 
 ```bash
@@ -104,6 +110,32 @@ Run the Fig. 14 one-row three-column demo:
 ```bash
 python scripts/demos/demo_hb_fig14_three_column.py
 ```
+
+## Beginner Mode / Codex 新手引导
+
+If you are new to this skill, use it in three levels:
+
+| Level | What to ask Codex | What you get |
+|---|---|---|
+| Level 1 | "Audit and classify my figures." | A figure inventory and category map. |
+| Level 2 | "Create a demo like this figure." | A runnable `.py` script and PNG with placeholder data. |
+| Level 3 | "Use my real data to regenerate it." | A project-specific script and final figure. |
+
+Three useful prompts:
+
+```text
+Use $sci-paper-plot-skill. I am a beginner. Please audit my figure folder and classify each image.
+```
+
+```text
+Use $sci-paper-plot-skill. Please create a runnable demo like Fig. 14's one-row three-column response plot.
+```
+
+```text
+Use $sci-paper-plot-skill. Please help this skill learn a new paper: audit figures, add a classification map, and create reusable demos.
+```
+
+More beginner guidance is in `references/codex-beginner-guide.md`.
 
 ## Self-Learning Method / Skill 自学习方法
 

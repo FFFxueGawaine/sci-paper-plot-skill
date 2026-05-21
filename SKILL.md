@@ -1,6 +1,6 @@
 ---
 name: sci-paper-plot-skill
-description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, mechanical nonlinear dynamics figures, clearance-type nonlinear system figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
+description: Create and apply reusable SCI paper plotting templates with the MSSP Compact Dynamics / scimplstyle_mssp Matplotlib style. Use when Codex needs publication-ready Matplotlib figures, SCI manuscript plot style guidance, beginner-friendly Codex plotting guidance, mechanical nonlinear dynamics figures, clearance-type nonlinear system figures, system identification plots, uncertainty visualization, machine-learning result plots, exported .jpg/.png/.tif figure audits, Jupyter notebook savefig tracing, or English SCI paper figure templates without modifying existing figures.
 ---
 
 # Sci Paper Plot Skill
@@ -17,6 +17,8 @@ Style name: `MSSP Compact Dynamics`.
 6. Use `scripts/scimplstyle_mssp_cli.py` when the user wants subcommands such as `audit`, `style-guide`, or demo scaffolds.
 7. For figures that do not match a demo exactly, read `references/adaptation-guide.md` and adapt by figure intent, data geometry, and manuscript role.
 8. Treat the skill folder as a template library; place user-specific plotting scripts and generated figures in the user's project workspace.
+
+If the user says they are a beginner, first-time user, or unsure how to start, read `references/codex-beginner-guide.md` and guide them through Level 1, Level 2, or Level 3 instead of assuming they know the tooling.
 
 Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Python code. Treat terminal mojibake as display-only; inspect bytes/files with UTF-8 aware tools before calling text corrupted.
 
@@ -109,6 +111,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 ## Resources
 
 - `references/mssp-compact-dynamics-style.md`: generalized style reference for the MSSP Compact Dynamics plotting style.
+- `references/codex-beginner-guide.md`: beginner-friendly Codex usage guide with levels, prompts, and common workflows.
 - `references/adaptation-guide.md`: rules for adapting arbitrary plotting code or existing images into the style without forcing exact demo shapes.
 - `references/mssp-nonlinear-dynamics-examples.md`: MSSP-style nonlinear dynamics figure examples, including Duffing, Van der Pol, pendulum, Bouc-Wen, and nonlinear identification demo files.
 - `references/hb-clearance-paper-figure-templates.md`: figure-by-figure template map for the hierarchical Bayesian clearance-type nonlinear system paper.
