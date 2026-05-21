@@ -95,6 +95,12 @@ List available demos:
 python scripts/scimplstyle_mssp_cli.py list-demos
 ```
 
+Show the beginner template-selection guide:
+
+```bash
+python scripts/scimplstyle_mssp_cli.py beginner-guide
+```
+
 Copy demos to a working folder:
 
 ```bash

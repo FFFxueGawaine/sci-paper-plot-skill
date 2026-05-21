@@ -18,7 +18,7 @@ Style name: `MSSP Compact Dynamics`.
 7. For figures that do not match a demo exactly, read `references/adaptation-guide.md` and adapt by figure intent, data geometry, and manuscript role.
 8. Treat the skill folder as a template library; place user-specific plotting scripts and generated figures in the user's project workspace.
 
-If the user says they are a beginner, first-time user, or unsure how to start, read `references/codex-beginner-guide.md` and guide them through Level 1, Level 2, or Level 3 instead of assuming they know the tooling.
+If the user says they are a beginner, first-time user, unsure how to start, do not know which plot type to choose, or asks Codex to help pick a template, read `references/codex-beginner-guide.md` first. Guide them through Level 1, Level 2, or Level 3, and recommend a template by user goal before explaining Matplotlib or Seaborn API details.
 
 Always open `.py`, `.txt`, and `.ipynb` with `encoding="utf-8"` when writing Python code. Treat terminal mojibake as display-only; inspect bytes/files with UTF-8 aware tools before calling text corrupted.
 
@@ -120,7 +120,7 @@ Default to Level 1 or Level 2 when the user asks to keep existing figures as a t
 - `references/common-plot-types-catalog.md`: compact lookup table for common Matplotlib and Seaborn plot types and their manuscript uses.
 - `scripts/audit_figures.py`: read-only inventory for exported images and notebook `savefig` calls.
 - `scripts/scimplstyle_mssp.py`: importable Matplotlib helper module for future SCI-style figures, including `add_zoom_inset()` for local magnified panels.
-- `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands.
+- `scripts/scimplstyle_mssp_cli.py`: beginner-friendly command entry point with subcommands, including `beginner-guide` for template selection.
 - `scripts/package_check.py`: lightweight pre-package validation without PyYAML.
 - `scripts/demos/`: runnable Matplotlib and Seaborn demos for validation comparison, local zoom inset, uncertainty scatter, FRF comparison, line plot, bar chart, Duffing identification, common nonlinear systems, sparse nonlinear library identification, hierarchical Bayesian clearance-system figures, phase/Poincare, bifurcation, time-frequency, basin, boxplot, common machine-learning figures, broader Matplotlib gallery figures, and common Seaborn `DataFrame` plot types.
 - `requirements.txt`: runtime dependencies for demos and audit scripts.

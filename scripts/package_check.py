@@ -149,6 +149,20 @@ def check_demo_count(root: Path, expected_minimum: int = 20) -> list[str]:
     return []
 
 
+def check_beginner_guide(root: Path) -> list[str]:
+    problems: list[str] = []
+    cli_text = read_text(root / "scripts" / "scimplstyle_mssp_cli.py")
+    if "beginner-guide" not in cli_text:
+        problems.append("CLI is missing beginner-guide subcommand")
+    demo_names = set(path.name for path in (root / "scripts" / "demos").glob("demo_*.py"))
+    referenced = set(re.findall(r"`(demo_[A-Za-z0-9_]+\.py)`", cli_text))
+    referenced.update(re.findall(r"`(demo_[A-Za-z0-9_]+\.py)`", read_text(root / "references" / "codex-beginner-guide.md")))
+    for demo_name in sorted(referenced):
+        if demo_name not in demo_names:
+            problems.append(f"beginner guide references missing demo: {demo_name}")
+    return problems
+
+
 def run_checks(root: Path) -> list[str]:
     checks = [
         check_required_files,
@@ -160,6 +174,7 @@ def run_checks(root: Path) -> list[str]:
         check_no_private_paths,
         check_python_syntax,
         check_demo_count,
+        check_beginner_guide,
     ]
     problems: list[str] = []
     for check in checks:
