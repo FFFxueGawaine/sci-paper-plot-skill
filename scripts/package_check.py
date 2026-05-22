@@ -263,6 +263,45 @@ def check_layout_spacing_guidance(root: Path) -> list[str]:
     return problems
 
 
+def check_unit_label_guidance(root: Path) -> list[str]:
+    problems: list[str] = []
+    style_text = read_text(root / "scripts" / "scimplstyle_mssp.py")
+    if "def format_axis_label(" not in style_text:
+        problems.append("scimplstyle_mssp.py missing format_axis_label helper")
+    if "UNKNOWN_UNIT_MARKERS" not in style_text:
+        problems.append("scimplstyle_mssp.py should define unknown unit markers")
+    docs = [
+        root / "SKILL.md",
+        root / "references" / "mssp-compact-dynamics-style.md",
+        root / "references" / "figure-quality-constraints.zh-CN.md",
+        root / "scripts" / "scimplstyle_mssp_cli.py",
+    ]
+    for path in docs:
+        text = read_text(path)
+        if "unknown" not in text.casefold() and "未知" not in text:
+            problems.append(f"{path.relative_to(root)} should mention unknown units")
+    forbidden_labels = [
+        "iteration (-)",
+        "epoch (-)",
+        "batch (-)",
+        "sample index (-)",
+        "sample order (-)",
+        "loss (-)",
+        "f1 score (-)",
+        "auc (-)",
+    ]
+    for path in root.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in TEXT_EXTS:
+            continue
+        if path.name == "package_check.py":
+            continue
+        text = read_text(path).casefold()
+        for label in forbidden_labels:
+            if label in text:
+                problems.append(f"{path.relative_to(root)} contains forbidden placeholder unit `{label}`")
+    return problems
+
+
 def run_checks(root: Path) -> list[str]:
     checks = [
         check_required_files,
@@ -277,6 +316,7 @@ def run_checks(root: Path) -> list[str]:
         check_beginner_guide,
         check_demo_index,
         check_layout_spacing_guidance,
+        check_unit_label_guidance,
     ]
     problems: list[str] = []
     for check in checks:

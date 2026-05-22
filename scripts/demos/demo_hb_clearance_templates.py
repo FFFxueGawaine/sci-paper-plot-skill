@@ -391,7 +391,7 @@ def template_fig016_experimental_joint_posterior(out_dir: Path) -> None:
         ax.set_ylabel(r"$\delta_i$")
         panel_label(ax, f"({chr(97+i)})")
         style_axes(ax)
-    fig.colorbar(sc, ax=axes, shrink=0.74, label="sample order (-)")
+    fig.colorbar(sc, ax=axes, shrink=0.74, label="sample order")
     save_figure(fig, "Fig.016_experimental_joint_posterior_template", out_dir=out_dir)
     plt.close(fig)
 

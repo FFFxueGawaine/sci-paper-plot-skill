@@ -17,6 +17,7 @@ This skill helps with a recurring paper-figure problem: figures are scattered ac
 
 - Classify by manuscript role: validation, uncertainty, FRF, time-frequency, candidate-library selection, schematic, etc.
 - Keep style and scientific meaning together: axis semantics, units, panel labels, density meaning, and validation hierarchy.
+- Omit unknown units; use `(-)` only for quantities that are explicitly dimensionless.
 - Use synthetic demo data in the skill package; keep private paper data and generated figures in the user workspace.
 - Let the skill improve by adding paper maps, demo metadata, and package checks after each curated reference paper.
 

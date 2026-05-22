@@ -60,6 +60,7 @@ For numbered manuscript figures, use consistent capitalization such as `Fig_01.p
 - Change `time(s)` to `time (s)`.
 - Change `fre.(Hz)` to `fre. (Hz)` or `frequency (Hz)`.
 - Change `dis.(mm)` to `dis. (mm)`.
+- If a unit is unknown, omit it instead of using `(-)` as a placeholder; `format_axis_label(label, unit)` follows this rule.
 - Do not add `(-)` to count or index axes such as `iteration`, `epoch`, `batch`, `sample index`, or `sample order`.
 - Use `loss`, `f1 score`, and `auc` without `(-)` by default; reserve `(-)` for explicitly normalized physical quantities, coefficients, probabilities, density proxies, or energy-like measures.
 - Keep panel labels bold and placed consistently; use `base_size + 4 pt` as the default template size.

@@ -44,6 +44,7 @@ Style name: `MSSP Compact Dynamics`.
 - Use bold panel labels `(a)`, `(b)`, `(c)` consistently; default placement is above each axes: `panel_label(ax, "(a)")` / `loc="top-center"`.
 - Use `loc="bottom-center"` only when the journal template or reference figure clearly puts panel labels below the axes.
 - Write units with a space before parentheses: `time (s)`, `fre. (Hz)`, `dis. (mm)`, `mag. (dB)`.
+- If a unit is unknown, omit the unit instead of writing `(-)`; use `format_axis_label(label, unit)` and reserve `(-)` for explicitly dimensionless quantities.
 - Do not add `(-)` to count/index axes such as `iteration`, `epoch`, `batch`, `sample index`, or `sample order`; common ML metrics such as `loss`, `f1 score`, and `auc` also omit `(-)` by default.
 - Keep labels, legends, line widths, markers, grid visibility, inset zooms, and colorbar placement consistent across the same figure family.
 - Keep legends and grid lines secondary to data; use `safe_legend()` or an empty corner for legends, and place dense legends outside the axes.

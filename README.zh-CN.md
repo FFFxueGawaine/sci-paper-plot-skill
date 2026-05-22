@@ -79,3 +79,4 @@ python scripts/scimplstyle_mssp_cli.py audit "<论文图片文件夹>" --markdow
 - 最终论文图优先 Matplotlib 精确排版；分组表格数据优先 Seaborn 快速探索。
 - `(a)(b)(c)` 标号默认放上方居中；只有期刊模板或参考图明确要求时才放下方居中。
 - 英文 SCI 标题默认 Times New Roman；中文报告标题可选宋体。
+- 单位未知时直接不写单位，不要用 `(-)` 占位；只有明确无量纲时才写 `(-)`。

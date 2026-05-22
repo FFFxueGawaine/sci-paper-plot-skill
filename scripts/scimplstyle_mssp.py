@@ -19,6 +19,19 @@ SCI_PALETTE = {
     "band": "#76B7B2",
 }
 
+UNKNOWN_UNIT_MARKERS = {"", "?", "unknown", "unk", "n/a", "na", "none", "null", "未知", "不明", "未定"}
+DIMENSIONLESS_UNIT_MARKERS = {
+    "-",
+    "dimensionless",
+    "unitless",
+    "non-dimensional",
+    "nondimensional",
+    "normalized",
+    "normalised",
+    "无量纲",
+    "归一化",
+}
+
 
 def mm_to_inch(mm: float) -> float:
     return mm / 25.4
@@ -146,6 +159,30 @@ def set_panel_title(
         kwargs.setdefault("fontfamily", fontfamily)
     kwargs.setdefault("pad", pad)
     return ax.set_title(title, **kwargs)
+
+
+def format_axis_label(label: str, unit: str | None = None, *, dimensionless: bool = False) -> str:
+    """Format an axis label without inventing unknown units.
+
+    Unknown or omitted units return the plain label. Use ``dimensionless=True``
+    or an explicit dimensionless marker such as ``"-"`` only when the quantity
+    is known to be non-dimensional.
+    """
+    base = label.strip()
+    if not base:
+        return base
+    if dimensionless:
+        return f"{base} (-)"
+    if unit is None:
+        return base
+    unit_text = str(unit).strip()
+    bare_unit = unit_text.strip("()").strip()
+    normalized = bare_unit.casefold()
+    if normalized in UNKNOWN_UNIT_MARKERS:
+        return base
+    if normalized in DIMENSIONLESS_UNIT_MARKERS:
+        return f"{base} (-)"
+    return f"{base} ({bare_unit})"
 
 
 def style_axes(ax: Any, grid: bool = False) -> None:
