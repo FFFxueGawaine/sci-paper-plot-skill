@@ -164,15 +164,14 @@ def set_panel_title(
 def format_axis_label(label: str, unit: str | None = None, *, dimensionless: bool = False) -> str:
     """Format an axis label without inventing unknown units.
 
-    Unknown or omitted units return the plain label. Use ``dimensionless=True``
-    or an explicit dimensionless marker such as ``"-"`` only when the quantity
-    is known to be non-dimensional.
+    Unknown, omitted, or dimensionless units return the plain label. Add a unit
+    only when the physical unit is explicit, such as ``"s"`` or ``"mm"``.
     """
     base = label.strip()
     if not base:
         return base
     if dimensionless:
-        return f"{base} (-)"
+        return base
     if unit is None:
         return base
     unit_text = str(unit).strip()
@@ -181,7 +180,7 @@ def format_axis_label(label: str, unit: str | None = None, *, dimensionless: boo
     if normalized in UNKNOWN_UNIT_MARKERS:
         return base
     if normalized in DIMENSIONLESS_UNIT_MARKERS:
-        return f"{base} (-)"
+        return base
     return f"{base} ({bare_unit})"
 
 

@@ -60,9 +60,9 @@ For numbered manuscript figures, use consistent capitalization such as `Fig_01.p
 - Change `time(s)` to `time (s)`.
 - Change `fre.(Hz)` to `fre. (Hz)` or `frequency (Hz)`.
 - Change `dis.(mm)` to `dis. (mm)`.
-- If a unit is unknown, omit it instead of using `(-)` as a placeholder; `format_axis_label(label, unit)` follows this rule.
+- If a unit is unknown or dimensionless, omit it instead of using `(-)` as a placeholder; `format_axis_label(label, unit)` follows this rule.
 - Do not add `(-)` to count or index axes such as `iteration`, `epoch`, `batch`, `sample index`, or `sample order`.
-- Use `loss`, `f1 score`, and `auc` without `(-)` by default; reserve `(-)` for explicitly normalized physical quantities, coefficients, probabilities, density proxies, or energy-like measures.
+- Use `loss`, `f1 score`, `auc`, normalized physical quantities, coefficients, probabilities, density proxies, and energy-like measures without `(-)` by default.
 - Keep panel labels bold and placed consistently; use `base_size + 4 pt` as the default template size.
 - Keep legends in empty regions or outside axes when the plot is dense.
 - Keep local zoom insets in empty regions; do not let the inset cover the very feature it is meant to explain.
@@ -79,8 +79,8 @@ For numbered manuscript figures, use consistent capitalization such as `Fig_01.p
 |---|---|
 | Time and frequency | `time (s)`, `period (s)`, `fre. (Hz)`, `ang. fre. (rad/s)`, `phase (deg)` |
 | Response | `dis. (mm)`, `vel. (mm/s)`, `acc. (m/s^2)`, `amp. (mm)`, `peak dis. (mm)`, `rms acc. (m/s^2)` |
-| FRF and spectra | `mag. (dB)`, `phase (deg)`, `psd (dB/Hz)`, `energy (-)` |
+| FRF and spectra | `mag. (dB)`, `phase (deg)`, `psd (dB/Hz)`, `energy` |
 | Mechanical properties | `force (N)`, `moment (N m)`, `torque (N m)`, `stiff. (N/mm)`, `damp. (N s/m)`, `mass (kg)` |
-| Material or field quantities | `strain (-)`, `stress (MPa)`, `pressure (kPa)`, `temp. (K)` |
+| Material or field quantities | `strain`, `stress (MPa)`, `pressure (kPa)`, `temp. (K)` |
 | Training progress | `iteration`, `epoch`, `batch`, `sample index`, `sample order`, `training samples` |
 | Machine-learning metrics | `acc. (%)`, `err. (%)`, `rmse (mm)`, `mae (mm)`, `loss`, `f1 score`, `auc`, `train. time (s)`, `infer. time (ms)` |

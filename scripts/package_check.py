@@ -270,6 +270,8 @@ def check_unit_label_guidance(root: Path) -> list[str]:
         problems.append("scimplstyle_mssp.py missing format_axis_label helper")
     if "UNKNOWN_UNIT_MARKERS" not in style_text:
         problems.append("scimplstyle_mssp.py should define unknown unit markers")
+    if 'return f"{base} (-)"' in style_text:
+        problems.append("format_axis_label should not emit (-) for dimensionless units by default")
     docs = [
         root / "SKILL.md",
         root / "references" / "mssp-compact-dynamics-style.md",
@@ -299,6 +301,9 @@ def check_unit_label_guidance(root: Path) -> list[str]:
         for label in forbidden_labels:
             if label in text:
                 problems.append(f"{path.relative_to(root)} contains forbidden placeholder unit `{label}`")
+    for path in (root / "scripts" / "demos").glob("*.py"):
+        if "(-)" in read_text(path):
+            problems.append(f"{path.relative_to(root)} should not use (-) in demo labels by default")
     return problems
 
 

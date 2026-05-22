@@ -74,8 +74,8 @@ def main() -> None:
     system_label(panels[0], "Duffing")
 
     panels[1].plot(vdp_x[-3800:], vdp_v[-3800:], color=SCI_PALETTE["baseline"], lw=0.60)
-    panels[1].set_xlabel("state (-)", labelpad=2)
-    panels[1].set_ylabel("vel. (-)", labelpad=2)
+    panels[1].set_xlabel("state", labelpad=2)
+    panels[1].set_ylabel("vel.", labelpad=2)
     system_label(panels[1], "Van der Pol")
 
     panels[2].plot(pend_x, pend_v, color=SCI_PALETTE["reference"], lw=0.65)
